@@ -19,7 +19,7 @@
  * @since 1.0 - 2010-1-11
  */
 
- class Page{
+ class Pager{
 		var $page_name  = 'page';  //page标签，用来控制url页。比如说xxx.php?PB_page=2中的PB_page 
 		var $next_page  = '>';        //下一页
 		var $pre_page   = '<';        //上一页
@@ -40,7 +40,7 @@
 		var $total = 0;
 		var $perpage = 0;
 		
-		function Page($array) {
+		function Pager($array) {
 			if(is_array($array)) {
 				if(!array_key_exists('total', $array)) $this->error(__FUNCTION__,'need a param of total');
 				 $total   = intval($array['total']);

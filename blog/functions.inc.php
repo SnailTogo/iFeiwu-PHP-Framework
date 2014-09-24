@@ -1,11 +1,12 @@
-<?php
+<?php defined('START_TIME') OR die();
+
 /**
  * 网站常用函数不可修改
  */
 spl_autoload_register('class_autoload');
 function class_autoload($class_name)
 {
-    $filename = APP_PATH . '/_lib/Includes/class.' . strtolower($class_name) . '.php';
+    $filename = CORE_PATH . '/Includes/class.' . strtolower($class_name) . '.php';
     if (file_exists($filename))
         require $filename;
 }
@@ -26,5 +27,5 @@ function _log($message)
 }
 
 /**
- * 下面是用户的自定义函数
+ * 下面是项目自定义函数
  */

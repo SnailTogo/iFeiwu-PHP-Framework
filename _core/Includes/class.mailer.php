@@ -1,5 +1,5 @@
 <?php
-require_once 'Mailer/class.phpmailer.php';
+require_once CORE_PATH.'/Libs/Mailer/class.phpmailer.php';
 
 class Mailer
 {

@@ -18,8 +18,8 @@
 /**
 * Always have these classes available.
 */
-include_once 'Template/Filter.php';
-include_once 'Template/Plugin.php';
+include_once CORE_PATH.'/libs/Template/Filter.php';
+include_once CORE_PATH.'/libs/Template/Plugin.php';
 
 
 /**
@@ -728,7 +728,7 @@ class Template {
 			break;
 		case 'resource':
 			// the Savant3 distribution resources
-			$this->addPath($type, LIB_PATH . '/Template/resources/');
+			$this->addPath($type, CORE_PATH . '/libs/Template/resources/');
 			break;
 		}
 		
@@ -1275,7 +1275,7 @@ class Template {
 		// are we throwing exceptions?
 		if ($this->__config['exceptions']) {
 			if (! class_exists('Savant3_Exception', $autoload)) {
-				include_once LIB_PATH . '/Template/Exception.php';
+				include_once CORE_PATH . '/libs/Template/Exception.php';
 			}
 			throw new Savant3_Exception($code);
 		}
@@ -1291,7 +1291,7 @@ class Template {
 		
 		// make sure the Savant3 error class is available
 		if (! class_exists('Savant3_Error', $autoload)) {
-			include_once LIB_PATH . '/Template/Error.php';
+			include_once CORE_PATH . '/libs/Template/Error.php';
 		}
 		
 		// return it
@@ -1325,7 +1325,7 @@ class Template {
 			// make sure the Savant3 error class is available for
 			// comparison
 			if (! class_exists('Savant3_Error', $autoload)) {
-				include_once LIB_PATH . '/Template/Error.php';
+				include_once CORE_PATH . '/libs/Template/Error.php';
 			}
 			// now compare the parentage
 			$is = $obj instanceof Savant3_Error;

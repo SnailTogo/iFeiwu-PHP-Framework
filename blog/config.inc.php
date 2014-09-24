@@ -1,6 +1,6 @@
-<?php
+<?php defined('START_TIME') OR die();
 
-$config = array(
+return array(
 
     // 在开发中，开启调试模式的错误信息
     'debug_mode' => TRUE,
@@ -31,5 +31,3 @@ $config = array(
     )
 
 );
-
-return $config;
