@@ -7,17 +7,15 @@ return array(
 
     // 数据库设置
     'db' => array(
-        'database_type' => 'mysql',
-        'database_name' => 'ifeiwu',
-        'server' => 'localhost',
-        'username' => 'root',
-        'password' => 'root',
+        'debug' => 0,
+        'type' => 'mysql',
+        'host' => 'localhost',
+        'name' => 'works',
+        'prefix' => '0104_',
+        'user' => 'root',
+        'pwd' => 'root',
         'port' => 3306,
-        'charset' => 'utf8',
-        'password' => 'root',
-        'option' => array(
-            PDO::ATTR_CASE => PDO::CASE_NATURAL
-        )
+        'charset' => 'utf8'
     ),
 
     // Cookie设置

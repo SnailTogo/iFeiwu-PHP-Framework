@@ -6,14 +6,14 @@
 spl_autoload_register('class_autoload');
 function class_autoload($class_name)
 {
-    $filename = CORE_PATH . '/Includes/class.' . strtolower($class_name) . '.php';
+    $filename = CORE_PATH . '/classes/class.' . strtolower($class_name) . '.php';
     if (file_exists($filename))
         require $filename;
 }
 
 function dump($value)
 {
-    return '<pre>' . print_r($value, 1) . '</pre>';
+    echo '<pre>' . print_r($value, 1) . '</pre>';
 }
 
 function redirect($url = '', $code = 302)
@@ -29,3 +29,15 @@ function _log($message)
 /**
  * 下面是项目自定义函数
  */
+
+function db_get_keys( $where ) {
+    global $db,$db_prefix;
+    $keys = $db->select("{$db_prefix}keys", array('key','value'), $where);
+    foreach ($keys as $key=>$val) {
+        $value = $val['value'];
+        if( !empty($value) ) {
+            $data[$val['key']] = $value;
+        }
+    }
+    return $data;
+}
