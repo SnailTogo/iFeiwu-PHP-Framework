@@ -5,7 +5,6 @@ class Session
 
     public function __construct($name = '')
     {
-//         new Sessionsecur();
         ini_set('session.name', $name);
         ini_set('session.use_only_cookies', TRUE);
         if (! isset($_SESSION)) {
