@@ -2,7 +2,7 @@ $(function(){
 	$(window).resize(function() {
 		$('.swiper-slide a').css('height',$(window).height()+'px');
 	});
-	$('.swiper-slide a').css('height',$(window).height()+'px');
+	$(window).trigger('resize');
 	var slide_count = params.slide_count-1;
 	var fwSwiper = new Swiper('.swiper-container', {
 		pagination : '.pagination',
