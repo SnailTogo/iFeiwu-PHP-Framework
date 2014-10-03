@@ -84,10 +84,10 @@ class Item extends Common {
 		return array('items'=>$this->_process_items($items),'pages'=>ceil($total/$rows),'total'=>$total);
 	}
 
-	protected function getHot($alias,$page=0,$rows=8)
+	protected function getHot($snid,$page=0,$rows=8)
 	{
-	    $items = $this->db->SelectLimit("select * from $this->table where alias='$alias' order by clicks desc,orderby desc,ctime desc",$rows,($page*$rows))->GetArray();
-	    $total = $this->db->GetOne("select count(id) from $this->table where alias='$alias'");
+	    $items = $this->db->SelectLimit("select * from $this->table where snid='$snid' order by clicks desc,orderby desc,ctime desc",$rows,($page*$rows))->GetArray();
+	    $total = $this->db->GetOne("select count(id) from $this->table where snid='$snid'");
 	
 	    return array('items'=>$this->_process_items($items),'pages'=>ceil($total/$rows),'total'=>$total);
 	}
@@ -136,7 +136,7 @@ class Item extends Common {
 			$old_path = $item['image_path'];
 			$new_path = $old_path.'/join';
 			$item['image_path'] = $new_path;
-			$item['pid'] = $item['alias'] = $join_pid;
+			$item['pid'] = $item['snid'] = $join_pid;
 			$item['joinid'] = $id;
 			$item['id']=null;
 			$item['ishome'] = 0;
@@ -153,7 +153,7 @@ class Item extends Common {
 				foreach ($imgs as $img) {
 				    $img['image_path'] = $new_path;
 					$img['pid'] = $insert_id;
-					$img['alias'] = $join_pid.'_img';
+					$img['snid'] = $join_pid.'_img';
 					$img['id'] = null;
 					$this->db->AutoExecute($this->table,$img,'INSERT');
 					
@@ -181,9 +181,9 @@ class Item extends Common {
 		return array('item'=>$item, 'imgs'=>$imgs);
 	}
 	
-	protected function getAll($alias)
+	protected function getAll($snid)
 	{
-		return $this->db->GetArray("select i.*,c.title as ctitle from $this->table i join {$this->prefix}cates c on c.id==i.pid where i.alias=? order by i.orderby desc,i.ctime desc",array($alias));
+		return $this->db->GetArray("select i.*,c.title as ctitle from $this->table i join {$this->prefix}cates c on c.id==i.pid where i.snid=? order by i.orderby desc,i.ctime desc",array($snid));
 	}
 
 	protected function getImgs($pid=null)
@@ -195,10 +195,10 @@ class Item extends Common {
 		}
 	}
 	
-	protected function getSearch($alias,$page=0,$rows=8,$skey=null)
+	protected function getSearch($snid,$page=0,$rows=8,$skey=null)
 	{
-		$items = $this->db->SelectLimit("select * from $this->table where alias='$alias' and title like '%$skey%' order by orderby desc,ctime desc",$rows,($page*$rows))->GetArray();
-		$total = $this->db->GetOne("select count(id) from $this->table where alias='$alias' and title like '%$skey%'");
+		$items = $this->db->SelectLimit("select * from $this->table where snid='$snid' and title like '%$skey%' order by orderby desc,ctime desc",$rows,($page*$rows))->GetArray();
+		$total = $this->db->GetOne("select count(id) from $this->table where snid='$snid' and title like '%$skey%'");
 		
 		return array('items'=>$this->_process_items($items),'pages'=>ceil($total/$rows),'total'=>$total);
 	}
