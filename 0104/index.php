@@ -2,9 +2,9 @@
 define('START_TIME', microtime(1));
 include 'bootstrap.inc.php';
 
-$pid = 1023;
+$snid = 11;
 if( $is_mobile ) {
-    $pid = 1024;
+    $snid = 12;
 }
 
 $keys = db_get_keys(array(
@@ -26,8 +26,8 @@ $items = $db->select("{$db_prefix}items", array(
     'url',
     'url_target'
 ), array(
-    'pid' => $pid,
-    'ORDER' => 'orderby DESC'
+    'snid' => $snid,
+    'ORDER' => array('orderby DESC','ctime DESC')
 ));
 
 $tpl->assign('items', $items);
