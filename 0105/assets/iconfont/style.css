@@ -1,0 +1,46 @@
+@font-face {
+	font-family: 'fw';
+	src:url('fonts/fw.eot?-dl8l1k');
+	src:url('fonts/fw.eot?#iefix-dl8l1k') format('embedded-opentype'),
+		url('fonts/fw.woff?-dl8l1k') format('woff'),
+		url('fonts/fw.ttf?-dl8l1k') format('truetype'),
+		url('fonts/fw.svg?-dl8l1k#fw') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'fw';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-left:before {
+	content: "\f053";
+}
+.icon-arrow-right:before {
+	content: "\f054";
+}
+.icon-arrow-down:before {
+	content: "\f078";
+}
+.icon-weibo:before {
+	content: "\e600";
+}
+.icon-message:before {
+	content: "\e601";
+}
+.icon-home:before {
+	content: "\e602";
+}
+.icon-works:before {
+	content: "\e603";
+}
