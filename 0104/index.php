@@ -2,6 +2,17 @@
 define('START_TIME', microtime(1));
 include 'bootstrap.inc.php';
 
+$pn = $_GET['pn'];
+
+if( !$pn ) {
+    
+} elseif( $pn=='works' ) {
+    
+} elseif( $pn=='message' ) {
+
+} elseif( $pn=='weibo' ) {
+
+}
 $snid = 11;
 if( $is_mobile ) {
     $snid = 12;
@@ -21,7 +32,7 @@ $keys = db_get_keys(array(
     )
 ));
 
-$items = $db->select("{$db_prefix}items", array(
+$items = $db->select(DB_PREFIX.'items', array(
     'image',
     'url',
     'url_target'
@@ -32,4 +43,5 @@ $items = $db->select("{$db_prefix}items", array(
 
 $tpl->assign('items', $items);
 $tpl->assign('keys', $keys);
+$tpl->assign('pn', $pn);
 $tpl->display('views/index.tpl.php');

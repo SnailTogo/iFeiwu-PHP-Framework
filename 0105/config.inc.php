@@ -1,31 +1,27 @@
 <?php defined('START_TIME') OR die();
 
-return array(
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 0);
+ini_set('date.timezone', 'PRC');
 
-    // 在开发中，开启调试模式的错误信息
-    'debug_mode' => TRUE,
+// 网站目录设置
+define('APP_PATH', dirname(dirname(__FILE__)));
+define('CORE_PATH', APP_PATH . '/_core');
 
-    // 数据库设置
-    'db' => array(
-        'debug' => 0,
-        'type' => 'mysql',
-        'host' => 'localhost',
-        'name' => 'works',
-        'prefix' => '0105_',
-        'user' => 'root',
-        'pwd' => 'root',
-        'port' => 3306,
-        'charset' => 'utf8'
-    ),
+//数据库设置
+define('DB_DEBUG', 0);
+define('DB_TYPE', 'mysql');
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'works');
+define('DB_USER', 'root');
+define('DB_PWD', 'root');
+define('DB_PORT', 3306);
+define('DB_PREFIX', '0105_');
 
-    // Cookie设置
-    'cookie' => array(
-        'key' => 'a.very.long.secret.key.here',
-        'expires' => time()+60*5, // 30 seconds
-        'path' => '/',
-        'domain' => '',
-        'secure' => '',
-        'httponly' => '',
-    )
-
-);
+//Cookie设置
+define('COOKIE_key', '');
+define('COOKIE_expires', time()+60*5);
+define('COOKIE_path', '/');
+define('COOKIE_domain', '');
+define('COOKIE_secure', '');
+define('COOKIE_httponly', '');

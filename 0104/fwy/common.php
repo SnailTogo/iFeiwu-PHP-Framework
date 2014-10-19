@@ -10,23 +10,15 @@ class Common
 
     function __construct()
     {
+        $this->prefix = DB_PREFIX;
         $this->db = $this->_get_db_connect();
     }
 
     protected function _get_db_connect()
     {
-        $config = include APP_PATH . '/config.inc.php';
-        $db_type = $config['db']['type'];
-        $db_host = $config['db']['host'];
-        $db_user = $config['db']['user'];
-        $db_pwd = $config['db']['pwd'];
-        $db_name = $config['db']['name'];
-        $db_debug = $config['db']['debug'];
-        $this->prefix = $config['db']['prefix'];
-        
         $db = NewADOConnection('mysql');
-        $db->Connect($db_host, $db_user, $db_pwd, $db_name) or die('Database connection failed.');
-        $db->debug = $db_debug;
+        $db->Connect(DB_HOST.':'.DB_PORT, DB_USER, DB_PWD, DB_NAME) or die('Database connection failed.');
+        $db->debug = DB_DEBUG;
         $db->Execute('set names utf8');
         $db->SetFetchMode(ADODB_FETCH_ASSOC);
         return $db;

@@ -153,7 +153,7 @@ class Item extends Common {
 				foreach ($imgs as $img) {
 				    $img['image_path'] = $new_path;
 					$img['pid'] = $insert_id;
-					$img['snid'] = $join_pid.'_img';
+					$img['snid'] = $join_pid;
 					$img['id'] = null;
 					$this->db->AutoExecute($this->table,$img,'INSERT');
 					
@@ -210,12 +210,15 @@ class Item extends Common {
 		
 		if( $result )
 		{
+		    $image_path = $image['image_path'];
 		    $filename = $image['image'];
-		    $path = '../data/'.$image['image_path'];
-		    unlink($path.'/'.$filename);
-		    unlink($path.'/b_'.$filename);
-		    unlink($path.'/m_'.$filename);
-		    unlink($path.'/s_'.$filename);
+		    if( !strstr($image_path, 'http://') ) {
+    		    $path = '../data/'.$image_path;
+    		    unlink($path.'/'.$filename);
+    		    unlink($path.'/b_'.$filename);
+    		    unlink($path.'/m_'.$filename);
+    		    unlink($path.'/s_'.$filename);
+		    }
 
 		    $pid = $image['pid'];
 		    $item_image = $this->db->GetOne("select `image` from $this->table where `id`=?",array($pid));

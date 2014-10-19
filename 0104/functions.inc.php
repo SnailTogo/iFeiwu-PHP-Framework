@@ -31,8 +31,8 @@ function _log($message)
  */
 
 function db_get_keys( $where ) {
-    global $db,$db_prefix;
-    $keys = $db->select("{$db_prefix}keys", array('key','value'), $where);
+    global $db;
+    $keys = $db->select(DB_PREFIX.'keys', array('key','value'), $where);
     foreach ($keys as $key=>$val) {
         $value = $val['value'];
         if( !empty($value) ) {
@@ -40,4 +40,22 @@ function db_get_keys( $where ) {
         }
     }
     return $data;
+}
+
+/**
+ * 页面导航箭头输出
+ */
+function tpl_nav_arrow($cur, $def) {
+    if( $cur==$def ){
+        echo '<div class="arrow"></div>';
+    }
+}
+
+/**
+ * 页面选中当前导航
+ */
+function tpl_nav_active($cur, $def) {
+    if( $cur==$def ){
+        echo 'class="active"';
+    }
 }

@@ -31,8 +31,8 @@ function _log($message)
  */
 
 function db_get_keys( $where ) {
-    global $db,$db_prefix;
-    $keys = $db->select("{$db_prefix}keys", array('key','value'), $where);
+    global $db;
+    $keys = $db->select(DB_PREFIX.'keys', array('key','value'), $where);
     foreach ($keys as $key=>$val) {
         $value = $val['value'];
         if( !empty($value) ) {

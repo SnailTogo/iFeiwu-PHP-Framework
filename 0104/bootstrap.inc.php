@@ -1,19 +1,8 @@
 <?php defined('START_TIME') OR die();
 
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors', 0);
-ini_set('date.timezone', 'PRC');
-
-// 网站根目录
-define('APP_PATH', dirname(dirname(__FILE__)));
-define('CORE_PATH', APP_PATH . '/_core');
-
 // 常用函数库和自动加载类库
+include 'config.inc.php';
 require 'functions.inc.php';
-
-// 数据库、Session、Cookie等配置
-$config = include 'config.inc.php';
-$db_prefix = $config['db']['prefix']; 
 
 // 模板引擎
 $tpl = new Template(array(
@@ -29,11 +18,10 @@ if( !$is_mobile ) {
 }
 
 // 数据库
-$db_config['database_type'] = $config['db']['type'];
-$db_config['server'] = $config['db']['host'];
-$db_config['database_name'] = $config['db']['name'];
-$db_config['username'] = $config['db']['user'];
-$db_config['password'] = $config['db']['pwd'];
-$db_config['port'] = $config['db']['port'];
-$db_config['charset'] = $config['db']['charset'];
+$db_config['database_type'] = DB_TYPE;
+$db_config['server'] = DB_HOST;
+$db_config['database_name'] = DB_NAME;
+$db_config['username'] = DB_USER;
+$db_config['password'] = DB_PWD;
+$db_config['port'] = DB_PORT;
 $db = new Database($db_config);

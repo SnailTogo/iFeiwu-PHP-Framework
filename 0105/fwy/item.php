@@ -153,7 +153,7 @@ class Item extends Common {
 				foreach ($imgs as $img) {
 				    $img['image_path'] = $new_path;
 					$img['pid'] = $insert_id;
-					$img['snid'] = $join_pid.'_img';
+					$img['snid'] = $join_pid;
 					$img['id'] = null;
 					$this->db->AutoExecute($this->table,$img,'INSERT');
 					

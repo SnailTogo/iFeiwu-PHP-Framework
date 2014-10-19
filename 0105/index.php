@@ -32,7 +32,7 @@ $keys = db_get_keys(array(
     )
 ));
 
-$items = $db->select("{$db_prefix}items", array(
+$items = $db->select(DB_PREFIX.'items', array(
     'image',
     'url',
     'url_target'
