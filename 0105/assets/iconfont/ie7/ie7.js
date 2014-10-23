@@ -13,6 +13,7 @@
 		el.innerHTML = '<span style="font-family: \'fw\'">' + entity + '</span>' + html;
 	}
 	var icons = {
+		'icon-close': '&#xf00d;',
 		'icon-arrow-left': '&#xf053;',
 		'icon-arrow-right': '&#xf054;',
 		'icon-arrow-down': '&#xf078;',

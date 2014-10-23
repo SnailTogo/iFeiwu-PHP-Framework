@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'fw';
-	src:url('fonts/fw.eot?-dl8l1k');
-	src:url('fonts/fw.eot?#iefix-dl8l1k') format('embedded-opentype'),
-		url('fonts/fw.woff?-dl8l1k') format('woff'),
-		url('fonts/fw.ttf?-dl8l1k') format('truetype'),
-		url('fonts/fw.svg?-dl8l1k#fw') format('svg');
+	src:url('fonts/fw.eot?xqgyvp');
+	src:url('fonts/fw.eot?#iefixxqgyvp') format('embedded-opentype'),
+		url('fonts/fw.woff?xqgyvp') format('woff'),
+		url('fonts/fw.ttf?xqgyvp') format('truetype'),
+		url('fonts/fw.svg?xqgyvp#fw') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,6 +23,9 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-close:before {
+	content: "\f00d";
+}
 .icon-arrow-left:before {
 	content: "\f053";
 }
