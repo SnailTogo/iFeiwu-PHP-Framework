@@ -31,20 +31,16 @@
     <div class="main">
         <?php if( $this->pn=='' ):?>
         <div class="home">
-            <div class="a"><img src="assets/img/home_01.jpg"></div>
-            <div class="b"><img src="assets/img/home_02.jpg"></div>
+            <div class="a"><img src="<?php echo $this->keys['home_left_image'];?>"></div>
+            <div class="b"><img src="<?php echo $this->keys['home_right_image'];?>"></div>
         </div>
         <?php elseif( $this->pn=='works' ):?>
         <div class="works">
             <h1>作 品</h1>
             <ul class="ul items">
-                <li><a href="#"><img src="assets/img/works_03.jpg"></a></li>
-                <li><a href="#"><img src="assets/img/works_05.jpg"></a></li>
-                <li><a href="#"><img src="assets/img/works_10.jpg"></a></li>
-                <li><a href="#"><img src="assets/img/works_14.jpg"></a></li>
-                <li><a href="#"><img src="assets/img/works_15.jpg"></a></li>
-                <li><a href="#"><img src="assets/img/works_18.jpg"></a></li>
-                <li><a href="#"><img src="assets/img/works_19.jpg"></a></li>
+                <?php foreach($this->items as $item):?>
+                <li><a href="#<?php echo $item['id'];?>" data-id="<?php echo $item['id'];?>"><img src="<?php echo $item['image_path'];?>/<?php echo $item['image'];?>"></a></li>
+                <?php endforeach;?>
             </ul>
             <ul class="ul pages">
                 <li><a href=""><i class="icon-arrow-right"></i></a></li>
@@ -88,7 +84,7 @@
         </form>
         <?php elseif( $this->pn=='weibo' ):?>
         <div class="weibo">
-            <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=5&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=5015930794&verifier=737b934b&dpc=1"></iframe>
+            <?php echo htmlspecialchars_decode($this->keys['weibo_sina_code']);?>
         </div>
         <?php endif;?>
     </div>

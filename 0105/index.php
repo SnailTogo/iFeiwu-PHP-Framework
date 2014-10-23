@@ -8,14 +8,20 @@ if( !$pn ) {
     
 } elseif( $pn=='works' ) {
     
+    $items = $db->select(DB_PREFIX.'items', array(
+        'id',
+        'image',
+        'image_path'
+    ), array(
+        'snid' => 11,
+        'ORDER' => array('orderby DESC','ctime DESC')
+    ));
+    $tpl->assign('items', $items);
+    
 } elseif( $pn=='message' ) {
 
 } elseif( $pn=='weibo' ) {
 
-}
-$snid = 11;
-if( $is_mobile ) {
-    $snid = 12;
 }
 
 $keys = db_get_keys(array(
@@ -25,23 +31,16 @@ $keys = db_get_keys(array(
             'seo_keys',
             'seo_title',
             'seo_desc',
-            'global_logo_web',
+            'home_left_image',
+            'home_right_image',
             'global_logo_app',
-            'global_favicon_ico'
+            'global_favicon_ico',
+            'weibo_sina_code'
         )
     )
 ));
 
-$items = $db->select(DB_PREFIX.'items', array(
-    'image',
-    'url',
-    'url_target'
-), array(
-    'snid' => $snid,
-    'ORDER' => array('orderby DESC','ctime DESC')
-));
 
-$tpl->assign('items', $items);
 $tpl->assign('keys', $keys);
 $tpl->assign('pn', $pn);
 $tpl->display('views/index.tpl.php');

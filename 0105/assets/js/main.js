@@ -10,18 +10,18 @@ require.config({
 });
 require(['jquery','browser'], function() {
 
-	$('.works img').on('click', function(){
+	$('.works .items a').on('click', function(){
 		$('.works .open').show();
-		fwscroll.refresh();
-		document.addEventListener('touchmove', touchmove_handler, false);
+		$.getJSON('forms/get_works.php',{id:$(this).data('id')},function(json){
+			fwscroll.refresh();
+			document.addEventListener('touchmove', touchmove_handler, false);
+		});
 	});
 	
 	if( $('.swiper-container').length ) {
 		
 		require(['swiper'], function() {
-			var slider = $('.swiper-container').swiper({
-				autoplay : 3000
-			});
+			var slider = $('.swiper-container').swiper({autoplay:3000,loop:true});
 			$('.arrow-left').on('click', function(e) {
 				e.preventDefault();
 				slider.swipePrev();

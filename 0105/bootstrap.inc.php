@@ -18,10 +18,4 @@ if( !$is_mobile ) {
 }
 
 // 数据库
-$db_config['database_type'] = DB_TYPE;
-$db_config['server'] = DB_HOST;
-$db_config['database_name'] = DB_NAME;
-$db_config['username'] = DB_USER;
-$db_config['password'] = DB_PWD;
-$db_config['port'] = DB_PORT;
-$db = new Database($db_config);
+$db = db_get_connect();
