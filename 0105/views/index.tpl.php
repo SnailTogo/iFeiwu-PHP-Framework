@@ -43,9 +43,9 @@
                 <?php endforeach;?>
             </ul>
             <ul class="ul pages">
-                <li><a href=""><i class="icon-arrow-right"></i></a></li>
-                <li><a href=""><i class="icon-arrow-left"></i></a></li>
+                <?php echo $this->pagebar;?>
             </ul>
+            <div style="clear:both"></div>
             <div class="open">
                 <div id="is-wrapper">
             		<div id="is-scroller">
@@ -54,17 +54,13 @@
                     			<a class="arrow-left"><i class="icon-arrow-left"></i></a>
                                 <a class="arrow-right"><i class="icon-arrow-right"></i></a>
                                 <div class="swiper-container">
-                                	<div class="swiper-wrapper">
-                                		<div class="swiper-slide"><img src="assets/img/test.jpg"></div>
-                                		<div class="swiper-slide"><img src="assets/img/test.jpg"></div>
-                                		<div class="swiper-slide"><img src="assets/img/test.jpg"></div>
-                                	</div>
+                                	<div class="swiper-wrapper"></div>
                                 </div>
                     		</div>
                     		<div class="info">
                     		    <a href="#" class="close"><i class="icon-close"></i></a>
-                    			<h2>W室内设计工作室logo</h2>
-                    			<p>他们清晰的了解业主的居住需求，能够用同龄人的眼光去帮他们塑造居住环境。以70后的态度，80后的精神去对待每个住宅空间。他们清晰的了解业主的居住需求，能够用同龄人的眼光去帮他们塑造居住环境。以70后的态度，80后的精神去对待每个住宅空间。他们清晰的了解业主的居住需求，能够用同龄人的眼光去帮他们塑造居住环境。以70后的态度，80后的精神去对待每个住宅空间。他们清晰的了解业主的居住需求，能够用同龄人的眼光去帮他们塑造居住环境。以70后的态度，80后的精神去对待每个住宅空间。</p>
+                    			<h2>这是标题</h2>
+                    			<p>这是描述</p>
                     		</div>
                     		<div class="share">
                                 <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
@@ -76,11 +72,11 @@
         	</div>
         </div>
         <?php elseif( $this->pn=='message' ):?>
-        <form id="message_form" class="message">
-            <input type="text" name="uname" value="" placeholder="姓名">
-            <input type="email" name="email" value="" placeholder="邮箱">
-            <textarea placeholder="留言内容"></textarea>
-            <div class="btn"><button type="submit" id="message_send">发 送</button></div>
+        <form class="message">
+            <input type="text" id="uname" value="" placeholder="姓名">
+            <input type="email" id="email" value="" placeholder="邮箱">
+            <textarea id="content" placeholder="留言内容"></textarea>
+            <div class="btn"><button id="message_send">发 送</button></div>
         </form>
         <?php elseif( $this->pn=='weibo' ):?>
         <div class="weibo">

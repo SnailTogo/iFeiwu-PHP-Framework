@@ -31,14 +31,14 @@
 		var $format_left = '';   //[
 		var $is_ajax     = false;    //是否支持ajax分页
 		
-		var $pagebarnum  = 8;
+		var $pagebarnum  = 8; 
 		var $totalpage   = 0;
 		var $ajax_action_name = '';
 		var $nowindex    = 1; //当前页数
 		var $url = '';
 		var $offset = 0;
 		var $total = 0;
-		var $perpage = 0;
+		var $perpage = 0; //每页多少条
 		
 		function Pager($array) {
 			if(is_array($array)) {

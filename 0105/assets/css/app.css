@@ -129,16 +129,18 @@ h1,h2,h3,h4,h5,h6{
 
 .works .pages{
 	padding: 0 50px 50px 0;
+	width: 180px;
+	float: right;
 }
 
 .works .pages li{
-	float: right;
+	float: left;
 	margin-left: 15px;
 }
 
 .works .pages a{
 	display: block;
-	border: 2px solid #ccc;
+	border: 2px solid #999;
 	text-align: center;
 	width:50px;
 	height:50px;
@@ -146,6 +148,14 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .works .pages i{
+	color:#999;
+}
+
+.works .pages li.disabled a{
+	border-color: #ccc;
+}
+
+.works .pages li.disabled i{
 	color:#ccc;
 }
 

@@ -13,15 +13,31 @@ require(['jquery','browser'], function() {
 	$('.works .items a').on('click', function(){
 		$('.works .open').show();
 		$.getJSON('forms/get_works.php',{id:$(this).data('id')},function(json){
+			if( json && json.item && json.imgs ) {
+				$('.info h2').text(json.item.title);
+				$('.info p').html(json.item.content);
+				slider.removeAllSlides();
+				var imgs_count = json.imgs.length;
+				for (var i = 0; i < imgs_count; i++) {
+					slider.appendSlide('<img src="'+json.imgs[i].image_path+'/'+json.imgs[i].image+'">');
+				}
+				if( imgs_count<=1 ) {
+					slider.stopAutoplay();
+					$('.arrow-left,.arrow-right').hide();
+				} else {
+					slider.startAutoplay();
+					$('.arrow-left,.arrow-right').show();
+				}
+			}
 			fwscroll.refresh();
 			document.addEventListener('touchmove', touchmove_handler, false);
 		});
 	});
 	
 	if( $('.swiper-container').length ) {
-		
+		var slider;
 		require(['swiper'], function() {
-			var slider = $('.swiper-container').swiper({autoplay:3000,loop:true});
+			slider = $('.swiper-container').swiper({autoplay:3000,loop:true});
 			$('.arrow-left').on('click', function(e) {
 				e.preventDefault();
 				slider.swipePrev();
@@ -50,6 +66,12 @@ require(['jquery','browser'], function() {
 			setTimeout(function(){
 				fwscroll.refresh();
 			},500);
+		});
+	}
+	
+	if( $('.message').length ) {
+		$('#message_send').click(function(){
+			$.post('forms/');
 		});
 	}
 	
