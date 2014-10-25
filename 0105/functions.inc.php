@@ -1,14 +1,15 @@
 <?php defined('START_TIME') OR die();
 
-/**
+/**************************************************************************
  * 网站常用函数不可修改
- */
+ ***************************************************************************/
 spl_autoload_register('class_autoload');
 function class_autoload($class_name)
 {
     $filename = CORE_PATH . '/classes/class.' . strtolower($class_name) . '.php';
-    if (file_exists($filename))
+    if (file_exists($filename)) {
         require $filename;
+    }
 }
 
 function dump($value)
@@ -26,11 +27,13 @@ function _log($message)
     file_put_contents(__DIR__ . '/data/log/.' . date('Y-m-d'), time() . ' ' . getenv('REMOTE_ADDR') . " $message\n", FILE_APPEND);
 }
 
-/**
+/**************************************************************************
  * 下面是项目自定义函数
- */
+ **************************************************************************/
 
-function db_get_connect() {
+//连接数据库
+function db_get_connect()
+{
     $db_config['database_type'] = DB_TYPE;
     $db_config['server'] = DB_HOST;
     $db_config['database_name'] = DB_NAME;
@@ -40,8 +43,12 @@ function db_get_connect() {
     return new Database($db_config);
 }
 
-function db_get_keys( $where ) {
+//网站基本数据
+function db_get_keys( $where )
+{
     global $db;
+    if( !$db ) $db = db_get_connect();
+
     $keys = $db->select(DB_PREFIX.'keys', array('key','value'), $where);
     foreach ($keys as $key=>$val) {
         $value = $val['value'];
@@ -52,19 +59,17 @@ function db_get_keys( $where ) {
     return $data;
 }
 
-/**
- * 页面导航箭头输出
- */
-function tpl_nav_arrow($cur, $def) {
+//页面导航箭头输出
+function tpl_nav_arrow($cur, $def)
+{
     if( $cur==$def ){
         echo '<div class="arrow"></div>';
     }
 }
 
-/**
- * 页面选中当前导航
- */
-function tpl_nav_active($cur, $def) {
+//页面选中当前导航
+function tpl_nav_active($cur, $def)
+{
     if( $cur==$def ){
         echo 'class="active"';
     }

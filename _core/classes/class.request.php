@@ -578,7 +578,8 @@ class Request {
   protected static function media($type, $strict = FALSE) {
     if ($strict) return $type;
 
-    $type = preg_split('/\s*;\s*/', $type)[0];
+    $type = preg_split('/\s*;\s*/', $type);
+    $type = $type[0];
     foreach (static::$formats as $format => $types) {
       if (in_array($type, (array) $types)) return $format;
     }
