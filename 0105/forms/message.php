@@ -45,10 +45,10 @@ if( $result )
     if( $config['smtp_isuse'] )
     {
         $crypt  = new Crypt();
-        $mailer = new Mailer($config);
         $config['smtp_pass'] = $crypt->decrypt($config['smtp_pass'],$config['fwy_token']);
+        $mailer = new Mailer($config);
         $mailer->set_title($uname.'：留言反馈');
-        $mailer->set_content("<p>客户姓名：$uname</p><p>客户邮箱:$email</p><p>留言内容：$content</p>");
+        $mailer->set_content("<p>客户姓名：$uname</p><p>客户邮箱: $email</p><p>留言内容：$content</p>");
         $mailer->add_address(explode(',', $config['smtp_to_email']));
         $mailer->add_cc(explode(',', $config['smtp_cc_email']));
         $mailer->add_bcc(explode(',', $config['smtp_bcc_email']));

@@ -60,7 +60,6 @@ $keys = db_get_keys(array(
     )
 ));
 
-
 $tpl->assign('keys', $keys);
 $tpl->assign('pn', $pn);
 $tpl->display('views/index.tpl.php');

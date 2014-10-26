@@ -189,28 +189,6 @@ class Request {
   }
 
   /**
-   * Get the value of an item in the $_SESSION array.
-   *
-   * @param  string $key     The array key.
-   * @param  string $default The default value.
-   * @return string
-   */
-  public static function session($key = NULL, $default = NULL) {
-    return static::lookup($_SESSION, $key, $default);
-  }
-
-  /**
-   * Get the value of an item in the $_COOKIE array.
-   *
-   * @param  string $key     The array key.
-   * @param  string $default The default value.
-   * @return string
-   */
-  public static function cookie($key = NULL, $default = NULL) {
-    return static::lookup($_COOKIE, $key, $default);
-  }
-
-  /**
    * Get the value of an item in the $_ENV array.
    *
    * @param  string $key     The array key.
