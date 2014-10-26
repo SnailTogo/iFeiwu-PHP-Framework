@@ -55,7 +55,8 @@ $keys = db_get_keys(array(
             'home_right_image',
             'global_logo_app',
             'global_favicon_ico',
-            'weibo_sina_code'
+            'weibo_sina_code',
+            'tongji_code',
         )
     )
 ));

@@ -88,5 +88,6 @@
 </div>
 <script src="assets/js/iscroll.js"></script>
 <script data-main="assets/js/main" src="assets/require.js"></script>
+<?php echo htmlspecialchars_decode($this->keys['tongji_code']);?>
 </body>
 </html>

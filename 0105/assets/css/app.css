@@ -277,6 +277,10 @@ h1,h2,h3,h4,h5,h6{
 	box-shadow: 8px 8px 0 #CDCDCD;
 }
 
+.weibo{
+	padding: 30px;
+}
+
 #is-wrapper {
 	position: absolute;
 	z-index: 1;
