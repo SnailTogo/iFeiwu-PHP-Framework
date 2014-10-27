@@ -1,10 +1,21 @@
-$(function(){
+require.config({
+	baseUrl: 'assets/js',
+	paths: {
+		'swiper': '../swiper/script.min'
+	},
+	shim: {
+		'swiper':['jquery']
+	},
+	urlArgs: "v=20141013"
+});
+require(['swiper'], function() {
+
 	$(window).resize(function() {
 		$('.swiper-slide a').css('height',$(window).height()+'px');
 	});
 	$(window).trigger('resize');
 	var slide_count = params.slide_count-1;
-	var fwSwiper = new Swiper('.swiper-container', {
+	var fwSwiper = $('.swiper-container').swiper({
 		pagination : '.pagination',
 		autoplay : 5000,
 		keyboardControl : true,
@@ -45,7 +56,7 @@ $(function(){
 	});
 	$('.swiper-pagination-switch').css('width',(100/params.slide_count)+'%');
 	
-	$(document).hover(function () {
+	$(document).hover(function() {
 		$('.arrow-right').show();
 		$('.arrow-left').show();
 		if( fwSwiper.activeIndex==slide_count ) {
@@ -59,9 +70,13 @@ $(function(){
 			$('.arrow-left').show();
 		}
 	},
-	function () {
+	function() {
 		$('.arrow-right').hide();
 		$('.arrow-left').hide();
 	});
+	
 });
+
+
+		
 

@@ -13,29 +13,36 @@
 <link href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/120/h/120" rel="apple-touch-icon" sizes="120x120">
 <link rel="stylesheet" href="assets/css/reset.css">
 <link rel="stylesheet" href="assets/css/font.css">
-<link rel="stylesheet" href="assets/swiper/style.css">
-<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/m_app.css">
 </head>
-<body>
-<a class="logo"><img src="<?php echo $this->keys['global_logo_web'];?>"></a>
-<a class="arrow-left"><i class="icon-arrow-left"></i></a>
-<a class="arrow-right"><i class="icon-arrow-right"></i></a>
-<div class="swiper-container">
-	<div class="swiper-wrapper">
-	    <?php foreach($this->items as $item):?>
-		<div class="swiper-slide">
-		    <?php
-		    $url = $item['url'];
-		    $url = $url?$url:'#';
-		    ?>
-			<a href="<?php echo $url;?>" target="<?php echo $item['url_target'];?>" style="background-image:url('<?php echo $item['image'];?>');"></a>
-		</div>
-		<?php endforeach;?>
-	</div>
-</div>
-<div class="pagination"></div>
+<body data-responsejs='{ 
+  "create": [{ 
+    "prop": "width",
+    "prefix": "src",
+    "breakpoints": [0, 360, 480, 640, 828]
+  }]
+}'>
 
-<script>var params = {'slide_count':'<?php echo count($this->items);?>'}</script>
-<script data-main="assets/js/main" src="assets/require.js"></script>
+
+<div class="wrap">
+<?php foreach($this->items as $item):?>
+    <?php
+    $url = $item['url'];
+    $url = $url?$url:'#';
+    ?>
+	<a href="<?php echo $url;?>" target="<?php echo $item['url_target'];?>">
+	   <img data-src0="<?php echo $item['image'];?>?imageView2/2/w/320" data-src480="<?php echo $item['image'];?>?imageView2/2/w/480" data-src640="<?php echo $item['image'];?>?imageView2/2/w/640" data-src828="<?php echo $item['image'];?>?imageView2/2/w/828" alt="<?php echo $item['title'];?>" />
+	</a>
+<?php endforeach;?>
+</div>
+
+
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/response.js"></script>
+<script>
+    $(function(){
+//     alert(Response.deviceW());
+    });
+    </script>
 </body>
 </html>

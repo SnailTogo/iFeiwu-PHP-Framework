@@ -8,7 +8,7 @@ echo <<<END
 <style>html,body{height:100%;padding:0;margin:0;overflow:hidden;}</style>
 </head>
 <body>
-<iframe id="fwy_ifr" src="http://ifeiwu.vicp.net/yun/works/index.php?domain=0105.com&pn=base0105" width="100%" height="100%" frameborder="0"></iframe>
+<iframe id="fwy_ifr" src="http://ifeiwu.vicp.net/yun/works/index.php?domain=0104.com&pn=base0104" width="100%" height="100%" frameborder="0"></iframe>
 <script src="http://ifeiwu.vicp.net/yun/main/assets/js/login_origin.js"></script>
 </body>
 </html>

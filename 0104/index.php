@@ -33,6 +33,7 @@ $keys = db_get_keys(array(
 ));
 
 $items = $db->select(DB_PREFIX.'items', array(
+    'title',
     'image',
     'url',
     'url_target'
@@ -44,4 +45,9 @@ $items = $db->select(DB_PREFIX.'items', array(
 $tpl->assign('items', $items);
 $tpl->assign('keys', $keys);
 $tpl->assign('pn', $pn);
-$tpl->display('views/index.tpl.php');
+
+if( $is_mobile ) {
+    $tpl->display('views/m_index.tpl.php');
+}   else {
+    $tpl->display('views/index.tpl.php');
+}

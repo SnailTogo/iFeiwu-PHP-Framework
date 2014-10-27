@@ -1,0 +1,32 @@
+*,:before,:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-o-box-sizing: content-box;
+	-ms-box-sizing: content-box;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 100%;
+}
+
+html,body {
+	height: 100%;
+}
+
+a {
+	display:block;
+	cursor: pointer;
+	text-decoration: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+img {
+	border: 0;
+	width: 100%;
+	height: auto;
+}
+
+.wrap {
+	text-align: center;
+}

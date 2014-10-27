@@ -1,7 +1,7 @@
 <?php
 class TokenAuth implements iAuthenticate{
 	
-	const KEY = '5qETOEy2D9xhBVIFbXEuZobvCH44rCcQ';
+	const KEY = 'U4uXyjU1YpGuPyq9s047hjbtuZGBc7F1';
 	
 	function __isAuthenticated() {
 		$token = $_GET['token'];
