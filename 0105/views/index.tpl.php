@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="assets/swiper/style.css">
 <link rel="stylesheet" href="assets/css/app.css">
 </head>
-<body style="background:url(assets/img/bg.png)">
+<body style="background-color:<?php echo $this->keys['global_bg_color'];?>;background-image:url('<?php echo $this->keys['global_bg_image'];?>');">
 
 <div class="wrap">
     <ul class="ul nav">

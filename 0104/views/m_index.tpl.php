@@ -12,19 +12,19 @@
 <link href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/114/h/114" rel="apple-touch-icon" sizes="114x114">
 <link href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/120/h/120" rel="apple-touch-icon" sizes="120x120">
 <link rel="stylesheet" href="assets/css/reset.css">
-<link rel="stylesheet" href="assets/css/font.css">
+<link rel="stylesheet" href="assets/iconfont/style.css">
 <link rel="stylesheet" href="assets/css/m_app.css">
 </head>
 <body data-responsejs='{ 
   "create": [{ 
     "prop": "width",
     "prefix": "src",
-    "breakpoints": [0, 360, 480, 640, 828]
+    "breakpoints": [0, 480, 640, 828]
   }]
 }'>
 
-
 <div class="wrap">
+<a class="arrow-down"><i class="icon-arrow-down"></i></a>
 <?php foreach($this->items as $item):?>
     <?php
     $url = $item['url'];
@@ -35,14 +35,6 @@
 	</a>
 <?php endforeach;?>
 </div>
-
-
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/response.js"></script>
-<script>
-    $(function(){
-//     alert(Response.deviceW());
-    });
-    </script>
+<script data-main="assets/js/m_main" src="assets/require.js"></script>
 </body>
 </html>

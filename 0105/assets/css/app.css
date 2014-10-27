@@ -250,14 +250,14 @@ h1,h2,h3,h4,h5,h6{
 	height: 3.5em;
 	width: 100%;
 	margin-bottom: 2em;
-	padding: 0 1em;
+	padding: 0 0.8em;
 	color: #aaa;
 	font-size:1.2em;
 }
 
 .message textarea{
 	height: 10em;
-	padding-top:1em;
+	padding-top:0.8em;
 }
 
 .message .btn{
@@ -364,7 +364,7 @@ h1,h2,h3,h4,h5,h6{
 	.works .info{font-size:1.2em;}
 	.works .swiper-container {width: 480px;height:480px;}
 	#is-wrapper {top:10px;left:0;bottom:10px;margin: 0;}
-
+	.weibo{padding:10px;}
 }
 
 @media only screen and (max-width: 540px) {
@@ -383,6 +383,8 @@ h1,h2,h3,h4,h5,h6{
 	.works .slider, .works .info {width: 300px;}
 	.works .info {padding: 20px 20px 50px;}
 	.works .swiper-container {width: 300px;height:300px;}
+	.message input{height:3em;}
+	.weibo{padding:10px;}
 }
 
 @media only screen and (max-width: 320px) {

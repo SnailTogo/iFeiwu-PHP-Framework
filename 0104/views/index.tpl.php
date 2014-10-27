@@ -12,7 +12,10 @@
 <link href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/114/h/114" rel="apple-touch-icon" sizes="114x114">
 <link href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/120/h/120" rel="apple-touch-icon" sizes="120x120">
 <link rel="stylesheet" href="assets/css/reset.css">
-<link rel="stylesheet" href="assets/css/font.css">
+<link rel="stylesheet" href="assets/iconfont/style.css">
+<!--[if lt IE 8]><!-->
+<link rel="stylesheet" href="assets/iconfont/ie7/ie7.css">
+<!--<![endif]-->
 <link rel="stylesheet" href="assets/swiper/style.css">
 <link rel="stylesheet" href="assets/css/app.css">
 </head>
@@ -28,7 +31,7 @@
 		    $url = $item['url'];
 		    $url = $url?$url:'#';
 		    ?>
-			<a href="<?php echo $url;?>" target="<?php echo $item['url_target'];?>" style="background-image:url('<?php echo $item['image'];?>');"></a>
+			<a href="<?php echo $url;?>" target="<?php echo $item['url_target'];?>" style="background-image:url('<?php echo $item['image'];?>');" title="<?php echo $item['title'];?>"></a>
 		</div>
 		<?php endforeach;?>
 	</div>

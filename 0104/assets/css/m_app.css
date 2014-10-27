@@ -10,14 +10,11 @@ html {
 	font-size: 100%;
 }
 
-html,body {
-	height: 100%;
-}
-
 a {
 	display:block;
 	cursor: pointer;
 	text-decoration: none;
+	line-height:0;
 	-webkit-tap-highlight-color: transparent;
 }
 
@@ -29,4 +26,28 @@ img {
 
 .wrap {
 	text-align: center;
+}
+
+.arrow-down{
+	position: absolute;
+	bottom: 4rem;
+	left: 50%;
+	margin-left: -2rem;
+	font-size: 4rem;
+}
+
+@media only screen and (max-width: 828px) {
+	html { font-size: 93.8%; }
+}
+
+@media only screen and (max-width: 640px) {
+	html { font-size: 87.5%; }
+}
+
+@media only screen and (max-width: 480px) {
+	html { font-size: 81.3%; }
+}
+
+@media only screen and (max-width: 320px) {
+	html { font-size: 75%; }
 }

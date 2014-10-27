@@ -4,11 +4,12 @@ require.config({
 		'swiper': '../swiper/script.min'
 	},
 	shim: {
-		'browser':['jquery']
+		'browser':['jquery'],
+		'swiper':['jquery']
 	},
 	urlArgs: "v=20141013"
 });
-require(['jquery','browser'], function() {
+require(['browser'], function() {
 
 	$('.works .items a').on('click', function(){
 		$('.works .open').show();
