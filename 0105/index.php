@@ -10,7 +10,7 @@ if( !$pn ) {
 
     $page = $_GET['page'];
     $page = $page?$page-1:0;
-    $perpage = 2;
+    $perpage = 6;
     
     $items = $db->select(DB_PREFIX.'items', array(
         'id',

@@ -73,9 +73,9 @@
         </div>
         <?php elseif( $this->pn=='message' ):?>
         <form class="message">
-            <input type="text" id="uname" value="冯思民" placeholder="姓名">
-            <input type="email" id="email" value="fengsimin@gmail.com" placeholder="邮箱">
-            <textarea id="content" placeholder="留言内容">我很喜欢你的网站</textarea>
+            <input type="text" id="uname" value="" placeholder="姓名">
+            <input type="email" id="email" value="" placeholder="邮箱">
+            <textarea id="content" placeholder="留言内容"></textarea>
             <div class="btn"><button type="button" id="message_send">发 送</button></div>
         </form>
         <?php elseif( $this->pn=='weibo' ):?>
