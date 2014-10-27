@@ -1,7 +1,7 @@
 require.config({
 	baseUrl: 'assets/js',
 	paths: {
-		'swiper': '../swiper/script.min'
+		'swiper': '../swiper/script'
 	},
 	shim: {
 		'browser':['jquery'],
