@@ -231,6 +231,16 @@ class Item extends Common {
 		}
 	}
 	
+	protected function postRemoveImage2( $request_data ) {
+	    $image_path = '../data/'.$request_data['image_path'];
+	    $image = $request_data['image'];
+	    unlink($image_path.'/'.$image);
+	    unlink($image_path.'/b_'.$image);
+	    unlink($image_path.'/m_'.$image);
+	    unlink($image_path.'/s_'.$image);
+	    return array('result'=>'success');
+	}
+	
 	protected function getComments($id)
 	{
 	    $item = $this->db->GetRow("select title from $this->table where id=?",array($id));	
