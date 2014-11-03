@@ -118,7 +118,7 @@ h1,h2,h3,h4,h5,h6{
 	float: left;
 	line-height: 0;
 	width: 360px;
-	height: 240px;
+	height: 360px;
 	margin: 0 50px 50px 0;
 	overflow: hidden;
 }
@@ -314,23 +314,6 @@ h1,h2,h3,h4,h5,h6{
 	text-size-adjust: none;
 }
 
-@media only screen and (min-width: 961px) {
-	/* html { font-size: 93.8%; }
-	.main{width:870px;margin: 40px auto 100px;}
-	.nav {width: 640px;height: 50px;margin-top: 128px;}
-	.home div{float: left;width: 60%;}
-	.home .b{width: 40%;}
-	.works .items {padding-left: 50px;}
-	.works .items li {width: 360px;height: 240px;margin: 0 50px 50px 0;}
-	.works h1 {padding: 80px;}
-	.works .pages {padding: 0 0 50px 0;}
-	.works .box {top: 50%;left: 50%;width: 900px;height: 450px;margin: -225px 0 0 -450px;}
-	.works .slider, .works .info {width: 450px;}
-	.works .info {padding: 50px;}
-	.works .swiper-container {width: 450px;height: 450px;} */
-
-}
-
 @media only screen and (max-width: 960px) {
 	html { font-size: 93.8%; }
 	.main{width:92%;margin:0 4%;margin: 40px auto 100px;}
@@ -338,7 +321,7 @@ h1,h2,h3,h4,h5,h6{
 	.home div{float: left;width: 60%;}
 	.home .b{width: 40%;}
 	.works .items {padding-left: 5%;}
-	.works .items li {width: 45%;margin: 0 5% 5% 0;}
+	.works .items li {width: 45%;height:auto;margin: 0 5% 5% 0;}
 	.works h1 {padding: 50px;}
 	.works .pages {padding: 0 5% 50px 0;}
 	.works .box {width: 700px;height: 350px;}
