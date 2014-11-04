@@ -326,7 +326,7 @@ h1,h2,h3,h4,h5,h6{
 	.works .pages {padding: 0 5% 50px 0;}
 	.works .box {width: 700px;height: 350px;}
 	.works .slider, .works .info {width: 350px;}
-	.works .info {padding: 50px;}
+	.works .info {padding: 40px 20px 60px;}
 	.works .info p{height: 75%;}
 	.works .swiper-container {width: 350px;height: 350px;}
 	#is-wrapper {margin: -175px 0 0 -350px;}
@@ -342,10 +342,10 @@ h1,h2,h3,h4,h5,h6{
 	.works .items li {width: 45%;margin: 0 5% 5% 0;}
 	.works h1 {padding: 35px;}
 	.works .pages {padding: 0 5% 30px 0;}
-	.works .box {width:480px;height:auto;margin: 0 auto;}
-	.works .slider, .works .info {width: 480px;}
+	.works .box {width:480px;height:auto;margin: 0 auto;padding:20px 20px 0;}
+	.works .slider, .works .info {width: 440px;}
 	.works .info{font-size:1.2em;}
-	.works .swiper-container {width: 480px;height:480px;}
+	.works .swiper-container {width: 440px;height:440px;}
 	#is-wrapper {top:10px;left:0;bottom:10px;margin: 0;}
 	.weibo{padding:10px;}
 }
@@ -358,14 +358,14 @@ h1,h2,h3,h4,h5,h6{
 	.nav i{color:#C1D5CC;}
 	.nav .active i{color:#fff;}
 	.home div{float:none;width:auto;}
-	.home .b{width: auto;}
+	.home .b{width: auto;padding: 0 20px 20px;}
 	.works .items li {width: 95%;}
 	.works h1 {padding: 35px;}
 	.works .pages {padding: 0 5% 20px 0;}
-	.works .box {width: 300px;height:auto;margin:0 auto;}
-	.works .slider, .works .info {width: 300px;}
-	.works .info {padding: 20px 20px 50px;}
-	.works .swiper-container {width: 300px;height:300px;}
+	.works .box {width: 300px;height:auto;margin:0 auto;padding:10px 10px 0;}
+	.works .slider, .works .info {width: 280px;}
+	.works .info {padding: 20px 20px 60px;}
+	.works .swiper-container {width: 280px;height:280px;}
 	.message input{height:3em;}
 	.weibo{padding:10px;}
 }

@@ -20,9 +20,13 @@ require(['swiper'], function() {
 		autoplay : 5000,
 		keyboardControl : true,
 		mousewheelControl : true,
+		paginationClickable: true,
 		grabCursor : true,
 		onFirstInit : function(swiper){
 			$('.logo').hide();
+			if( slide_count>0 ) {
+				$('.arrow-right').show();
+			}
 		},
 		onSlideChangeStart: function(swiper){
 			if( swiper.activeIndex==slide_count ) {

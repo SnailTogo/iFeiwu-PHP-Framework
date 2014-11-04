@@ -1,0 +1,137 @@
+*,:before,:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-o-box-sizing: content-box;
+	-ms-box-sizing: content-box;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 100%;
+}
+
+html,body {
+	height: 100%;
+	overflow: hidden;
+}
+
+a {
+	cursor: pointer;
+	text-decoration: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+img {
+	border: 0;
+	max-width: 100%;
+	height: auto;
+}
+
+.logo{
+	display:block;
+	position: absolute;
+	top:50px;
+	right:50px;
+	z-index:999;
+}
+
+.arrow-right,.arrow-left{
+	position: absolute;
+	bottom:0;
+	right:0;
+	height:80px;
+	width:80px;
+	background:url(../img/arrows.png) no-repeat;
+	background-position:0 -95px;
+	background-color:#000;
+	z-index: 999;
+}
+
+.arrow-left{
+	background-position:-5px -5px;
+}
+
+.pagination {
+	display: none;
+	position: absolute;
+	left: 40px;
+	top: 50%;
+	z-index: 999;
+}
+
+.swiper-pagination-switch {
+	position:relative;
+	display: block;
+	width: 20px;
+	height: 20px;
+	border-radius: 20px;
+	background: #555;
+	margin: 0 0 65px;
+	cursor: pointer;
+}
+
+.swiper-pagination-switch:nth-child(1){
+	background: #8058bd;
+}
+
+.swiper-pagination-switch:nth-child(2){
+	background: #EA5163;
+}
+
+.swiper-pagination-switch:nth-child(3){
+	background: #F79240;
+}
+
+.swiper-pagination-switch:nth-child(4){
+	background: #E8FA4E;
+}
+
+.swiper-pagination-switch:nth-child(5){
+	background: #2A99D8;
+}
+
+.swiper-pagination-switch:nth-child(6){
+	background: #58DB4B;
+}
+
+.swiper-pagination-switch:nth-child(6){
+	background: #57DB4A;
+}
+
+.swiper-pagination-switch:nth-child(7){
+	background: #EC06DF;
+}
+
+.swiper-pagination-switch:after{
+	position: absolute;
+	content: '';
+	height: 40px;
+	width: 5px;
+	background: #fff;
+	top: 33px;
+	left: 6.5px;
+}
+
+.swiper-pagination-switch:last-child:after{
+	display: none;
+}
+
+.swiper-active-switch {
+	/* width: 25px;
+	height: 25px;
+	border-radius: 25px;
+	border: 5px solid #fff;
+	margin-left: -2.5px; */
+	box-shadow: 0 0 0 5px #fff;
+}
+
+/* .swiper-active-switch:after{
+	left: 4px;
+} */
+
+.swiper-slide a{
+	display: block;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
