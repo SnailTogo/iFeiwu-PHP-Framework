@@ -40,12 +40,19 @@ header{
 	width:100%;
 	background: #000;
 	padding-top:2rem;
+	position: fixed;
+	top:0;
+	left:0;
 }
 
 header img{
 	width: 8rem;
 	display: block;
 	margin: 0 auto;
+}
+
+.items{
+	margin-top: 10rem;
 }
 
 .pagination {

@@ -30,7 +30,7 @@
             $count = count($this->items);
             for ($i = 0; $i < $count; $i++):
             ?>
-            <a href="#a<?php echo $i;?>" class="switch <?php if( $i==0 ) echo 'active';?>"></a>
+            <a class="switch <?php if( $i==0 ) echo 'active';?>" data-scroll-nav="<?php echo $i;?>"></a>
             <?php endfor;?>
         </div>
     </header>
@@ -40,7 +40,7 @@
         $url = $item['url'];
         $url = $url?$url:'#';
         ?>
-        <li class="a<?php echo $key;?>">
+        <li data-scroll-index="<?php echo $key;?>">
             <a href="<?php echo $url;?>" target="<?php echo $item['url_target'];?>">
         	   <img data-src0="<?php echo $item['image'];?>?imageView2/2/w/320" data-src480="<?php echo $item['image'];?>?imageView2/2/w/480" data-src640="<?php echo $item['image'];?>?imageView2/2/w/640" data-src828="<?php echo $item['image'];?>?imageView2/2/w/828" alt="<?php echo $item['title'];?>" />
         	</a>

@@ -3,22 +3,17 @@ require.config({
 	paths: {},
 	shim: {
 		'response':['jquery'],
-		'smint':['jquery']
+		'scrollIt':['jquery']
 	},
 	urlArgs: "v=20141013"
 });
-require(['response','smint'], function() {
+require(['response','scrollIt'], function() {
+	
+	$.scrollIt({topOffset : -($('header').height()+27)});
 
-	$('header').smint({
-    	'scrollSpeed' : 1000,
-    	'mySelector' : 'li'
-    });
-	
-	$('.pagination').css({'width':($('.pagination').width()/13)+'rem','display':'block'}).show();
-//	alert($('.items li img').height());
-//	$('.items li').height($('.items li img').height());
-//	
-//	
-	
-	
+	var w_rem = $('.pagination').width()/13;
+	var w_rem = new Number(w_rem+1).toFixed(1);
+	var w_rem = new Number(w_rem - 1).toFixed(0);
+	$('.pagination').css({'width':w_rem+'rem','display':'block'}).show();
+
 });
