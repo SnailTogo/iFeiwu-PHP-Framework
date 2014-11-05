@@ -9,11 +9,15 @@ require.config({
 });
 require(['response','scrollIt'], function() {
 	
-	$.scrollIt({topOffset : -($('header').height()+27)});
+	$(function(){
+		$('.items').show();
+		
+		$.scrollIt({topOffset : -($('header').height()+27)});
 
-	var w_rem = $('.pagination').width()/13;
-	var w_rem = new Number(w_rem+1).toFixed(1);
-	var w_rem = new Number(w_rem - 1).toFixed(0);
-	$('.pagination').css({'width':w_rem+'rem','display':'block'}).show();
+		var w_rem = $('.pagination').width()/13;
+		var w_rem = new Number(w_rem+1).toFixed(1);
+		var w_rem = new Number(w_rem - 1).toFixed(0);
+		$('.pagination').css({'width':w_rem+'rem','display':'block'}).show();
+	});
 
 });

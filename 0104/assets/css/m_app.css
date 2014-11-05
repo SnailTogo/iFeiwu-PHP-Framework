@@ -24,16 +24,66 @@ img {
 	height: auto;
 }
 
+.ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
 .wrap {
-	text-align: center;
+	max-width:828px;
+	margin:0 auto;
 }
 
 .arrow-down{
+	display:none;
 	position: absolute;
 	bottom: 4rem;
 	left: 50%;
 	margin-left: -2rem;
 	font-size: 4rem;
+}
+
+header{
+	display:none;
+	height:8rem;
+	width:100%;
+	background: #000;
+	padding-top:1rem;
+	position: fixed;
+	top:0;
+	left:0;
+}
+
+header img{
+	width: 5rem;
+	display: block;
+	margin: 0 auto;
+}
+
+.items{
+	display:none;
+}
+
+.pagination {
+	display:none;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background: #FFF;
+	z-index: 999;
+}
+
+.switch {
+	float: left;
+	height: 10px;
+	cursor: pointer;
+}
+
+.active {
+	background: #352F2C;
 }
 
 @media only screen and (max-width: 828px) {

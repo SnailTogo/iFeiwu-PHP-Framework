@@ -32,7 +32,7 @@
 		    $url = $item['url'];
 		    $url = $url?$url:'#';
 		    ?>
-			<a href="<?php echo $url;?>" target="<?php echo $item['url_target'];?>" style="background-image:url('<?php echo $item['image'];?>');" title="<?php echo $item['title'];?>"></a>
+			<a href="<?php echo $url;?>" target="<?php echo $item['url_target'];?>" data-image="<?php echo $item['image'];?>" title="<?php echo $item['title'];?>"></a>
 		</div>
 		<?php endforeach;?>
 	</div>

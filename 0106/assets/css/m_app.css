@@ -33,6 +33,7 @@ img {
 
 .wrap {
 	max-width:828px;
+	margin:0 auto;
 }
 
 header{
@@ -53,6 +54,7 @@ header img{
 
 .items{
 	margin-top: 10rem;
+	display:none;
 }
 
 .pagination {

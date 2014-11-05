@@ -4,11 +4,12 @@ require.config({
 		'swiper': '../swiper/script'
 	},
 	shim: {
-		'swiper':['jquery']
+		'swiper':['jquery'],
+		'response':['jquery']
 	},
 	urlArgs: "v=20141013"
 });
-require(['swiper'], function() {
+require(['swiper','response'], function() {
 
 	$(window).resize(function() {
 		$('.swiper-slide a').css('height',$(window).height()+'px');
@@ -23,12 +24,20 @@ require(['swiper'], function() {
 		paginationClickable: true,
 		grabCursor : true,
 		onFirstInit : function(swiper){
+			
+			var $slide_a = $(swiper.slides[0]).find('a');console.log($slide_a);
+			$slide_a.css('background-image','url('+$slide_a.data('image')+'?imageView2/2/w/'+Response.deviceW()+')');
+			
 			$('.logo').hide();
 			if( slide_count>0 ) {
 				$('.arrow-right').show();
 			}
 		},
 		onSlideChangeStart: function(swiper){
+			
+			var $slide_a = $(swiper.slides[swiper.activeIndex]).find('a');
+			$slide_a.css('background-image','url('+$slide_a.data('image')+'?imageView2/2/w/'+Response.deviceW()+')');
+			
 			if( swiper.activeIndex==slide_count ) {
 				$('.arrow-right').hide();
 			} else {
