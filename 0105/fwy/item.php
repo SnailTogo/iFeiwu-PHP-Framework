@@ -128,52 +128,12 @@ class Item extends Common {
 		return array('result'=>'success');
 	}
 	
-	protected function postCopy($join_pid,$request_data)
-	{
-		$ids = $request_data['ids'];
-		foreach ($ids as $id) {
-			$item = $this->db->GetRow("select * from $this->table where id=?",array($id));
-			$old_path = $item['image_path'];
-			$new_path = $old_path.'/join';
-			$item['image_path'] = $new_path;
-			$item['pid'] = $item['snid'] = $join_pid;
-			$item['joinid'] = $id;
-			$item['id']=null;
-			$item['ishome'] = 0;
-			$result = $this->db->AutoExecute($this->table,$item,'INSERT');
-			if( $result!==false ) {
-
-			    if (!is_dir(UPLOAD_PATH.'/'.$new_path)) {
-			        @mkdir(UPLOAD_PATH.'/'.$new_path,0777,true);
-			    }
-			    
-				//添加图片列表
-				$insert_id = $this->db->Insert_ID();
-				$imgs = $this->db->GetArray("select * from $this->table where `pid`=?",array($id));
-				foreach ($imgs as $img) {
-				    $img['image_path'] = $new_path;
-					$img['pid'] = $insert_id;
-					$img['snid'] = $join_pid;
-					$img['id'] = null;
-					$this->db->AutoExecute($this->table,$img,'INSERT');
-					
-					//复制一份图片到新目录
-					copy("../data/$old_path/s_{$img['image']}", "../data/$new_path/s_{$img['image']}");
-					copy("../data/$old_path/m_{$img['image']}", "../data/$new_path/m_{$img['image']}");
-					copy("../data/$old_path/b_{$img['image']}", "../data/$new_path/b_{$img['image']}");
-					copy("../data/$old_path/{$img['image']}", "../data/$new_path/{$img['image']}");
-				}
-			}
-		}
-		return array('result'=>'success');
-	}
-	
 	protected function getOne($id)
 	{
 		return $this->db->GetRow("select * from $this->table where id=?",array($id));
 	}
 	
-	protected function getOneImgs($id)
+	protected function getOne2($id)
 	{
 		$item = $this->db->GetRow("select * from $this->table where id=?",array($id));
 		$imgs = $this->db->GetArray("select * from $this->table where `pid`=? order by orderby desc,ctime desc",array($item['id']));

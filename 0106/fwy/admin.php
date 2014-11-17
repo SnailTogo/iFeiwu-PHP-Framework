@@ -234,7 +234,7 @@ class Admin extends Common {
 	//获取元数据
 	protected function getKeys()
 	{
-	    $keys = $this->db->GetArray("select `key`,`value` from {$this->prefix}keys where `state`=1");
+	    $keys = $this->db->GetArray("select * from {$this->prefix}keys where `state`=1");
 	    foreach ($keys as $key=>$value) {
 	        $lang = $value['lang'];
 	        if( $lang ) {

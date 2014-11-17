@@ -58,13 +58,10 @@ class Common
 
     protected function _process_items($items)
     {
-        foreach ($items as $key => $item) {
-            $title = $this->db->GetCol("select `title` from {$this->prefix}cates where `id`=?", array(
-                $item['pid']
-            ));
-            $items[$key]['ctitle'] = $title[0];
-        }
-        return $items;
+        foreach ($items as $key=>$item) {
+			$items[$key]['cate'] = $this->db->GetRow("select * from ".DB_PREFIX."cates where `id`=?",array($item['pid']));
+		}
+		return $items;
     }
 
     protected function _get_html_entity($value)

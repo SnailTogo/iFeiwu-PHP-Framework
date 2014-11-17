@@ -1,5 +1,5 @@
 <?php
-require_once CORE_PATH.'/libs/Phpmin/HTMLMin.php';
+require_once CORE_PATH.'/libs/Phpmin/htmlmin.php';
 
 class Phpstatic extends Common {
 	

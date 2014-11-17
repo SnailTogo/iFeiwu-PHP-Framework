@@ -1,6 +1,6 @@
 <?php
-require_once CORE_PATH.'/libs/Phpmin/CSSMin.php';
-require_once CORE_PATH.'/libs/Phpmin/JSMin.php';
+require_once CORE_PATH.'/libs/Phpmin/cssmin.php';
+require_once CORE_PATH.'/libs/Phpmin/jsmin.php';
 
 class Phpmin extends Common {
 	

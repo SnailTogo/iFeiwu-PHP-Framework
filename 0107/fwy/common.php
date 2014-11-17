@@ -104,6 +104,6 @@ class Common
 
     protected function _log($m)
     {
-        file_put_contents(dirname(__FILE__) . '/logs/' . date('Y-m-d'), date('H:i:s', time()) . ' ' . getenv('REMOTE_ADDR') . " $m\n", FILE_APPEND);
+        file_put_contents(dirname(__FILE__) . '/log/' . date('Y-m-d'), date('H:i:s', time()) . ' ' . getenv('REMOTE_ADDR') . " $m\n", FILE_APPEND);
     }
 }

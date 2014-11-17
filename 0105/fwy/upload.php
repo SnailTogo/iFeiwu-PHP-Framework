@@ -1,32 +1,22 @@
 <?php
-define('START_TIME', microtime(1));
 require_once 'cors.inc.php';
 require_once '../config.inc.php';
 require_once '../functions.inc.php';
 
-$upload_root = '../data'; // 上传路径
+$upload_root = '../data';
 
 if ( !empty($_FILES['images']) )
 {
 	$handle = new Upload($_FILES['images']);
 	if ($handle->uploaded)
 	{
-	    $act = $_POST['act'];
-	    if( $act=='logo' ) {
-	        
-	    }
-	    elseif( $act=='qrcode' ) {
-			$handle->file_new_name_body = 'qrcode';
-			$handle->file_overwrite = true;
-			$handle->Process($upload_root);
-		}
-		else
-		{
-		    $file_overwrite = $_POST['file_overwrite'];
-		    $image_resize = $_POST['image_resize'];
-		    $image_path = $_POST['image_path'];
-            $image_path = $image_path?$image_path:date('Y').'/'.date('m').'/'.date('d');
-		    
+	    $file_new_name_body = $_POST['file_new_name_body'];
+	    $file_overwrite = $_POST['file_overwrite'];
+	    $image_resize = $_POST['image_resize'];
+	    $file_save_path = $_POST['file_save_path'];
+	    
+	    if( $image_resize==1 )
+	    {
     	    $file_name_body_pre = explode(',',$_POST['file_name_body_pre']);
     	    $image_x  = explode(',',$_POST['image_x']);
     	    $image_y = explode(',',$_POST['image_y']);
@@ -51,18 +41,23 @@ if ( !empty($_FILES['images']) )
     	        } else {
     	            $handle->image_ratio_y = true;
     	        }
-    	        
+    	        if( $file_new_name_body ) $handle->file_new_name_body = $file_new_name_body;
     	        $handle->file_overwrite = $file_overwrite?true:false;
-    	        $handle->Process($upload_root.'/'.$image_path);
+    	        $handle->Process($upload_root.'/'.$file_save_path);
     	    }
+	    } else {
+	        if( $file_new_name_body ) $handle->file_new_name_body = $file_new_name_body;
+	        $handle->file_overwrite = $file_overwrite?true:false;
+	        $handle->Process($upload_root.'/'.$file_save_path);
 	    }
-		
-		if ( $handle->processed ) {
-			exit(json_encode(array('result'=>'success','image'=>$handle->file_dst_name,'image_path'=>$image_path)));
-		} else {
-			exit(json_encode(array('result'=>'error')));
-		}
+    }
+	
+	if ( $handle->processed ) {
+		exit(json_encode(array('result'=>'success','image'=>$handle->file_dst_name,'image_path'=>$save_path)));
+	} else {
+		exit(json_encode(array('result'=>'error')));
 	}
+
 } else {
 	exit(json_encode(array('result'=>'error_images')));
 }
