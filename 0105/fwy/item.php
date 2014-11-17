@@ -136,7 +136,7 @@ class Item extends Common {
 	protected function getOne2($id)
 	{
 		$item = $this->db->GetRow("select * from $this->table where id=?",array($id));
-		$imgs = $this->db->GetArray("select * from $this->table where `pid`=? order by orderby desc,ctime desc",array($item['id']));
+		$imgs = $this->db->GetArray("select * from $this->table where `pid`=? and snid=0 order by orderby desc,ctime desc",array($item['id']));
 		
 		return array('item'=>$item, 'imgs'=>$imgs);
 	}

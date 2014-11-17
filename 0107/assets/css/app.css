@@ -46,119 +46,53 @@ h1,h2,h3,h4,h5,h6{
 	min-width:320px;
 }
 
-.nav{
-	width: 640px;
-	height: 50px;
-	margin-top: 128px;
-	margin: 128px auto 0;
-	overflow: visible;
-}
-
-.nav li{
-	float: left;
-	width: 25%;
-	text-align: center;
-	position: relative;
-}
-
-.nav i{
-	color: #fff;
-	font-size:3em;
-}
-
-.nav .arrow{
-	position: absolute;
-	left: 50%;
-	top: 70px;
-	margin-left: -20px;
-	width: 0;
-	height: 0;
-	border-left: 20px solid transparent;
-	border-right: 20px solid transparent;
-	border-bottom: 20px solid #FFFFFF;
-	font-size: 0;
-	line-height: 0;
-}
-
-.main{
-	width: 870px;
-	margin: 40px auto 100px;
-	background: #fff;
-	box-shadow: 1px 1px 2px #5F5F5F;
-}
-
-.home{
-	line-height: 0;
-	overflow: hidden;
-}
-
-.home div{
-	float: left;
-	width: 60%;
-}
-
-.home .b{
-	width: 40%;
-}
-
-.works h1{
-	color: #6c6c6c;
-	text-align: center;
-	font-size: 2.5rem;
-	padding:80px;
-	margin:0;
-}
-
-.works .items {
-	padding-left: 50px;
-}
-
-.works .items li{
+.items li{
 	float: left;
 	line-height: 0;
-	width: 360px;
+	width: 50%;
 	height: 360px;
-	margin: 0 50px 50px 0;
+
 	overflow: hidden;
 }
 
-.works .items li a{
+.items li a{
 	display: block;
 }
 
-.works .pages{
-	padding: 0 50px 50px 0;
-	width: 180px;
-	float: right;
+.pages{
+	padding: 0 20px 20px 0;
+	overflow: visible;
+	margin: 0 auto;
+	width:80%;
+	margin-top:100px;
 }
 
-.works .pages li{
+.pages li{
 	float: left;
-	margin-left: 15px;
+	margin-left: 25px;
 }
 
-.works .pages a{
+.pages a{
 	display: block;
-	border: 2px solid #999;
 	text-align: center;
-	width:50px;
-	height:50px;
-	line-height: 50px;
+	width:30px;
+	height:30px;
+	line-height: 30px;
+	background-color:#fff;
+	color:#fff;
 }
 
-.works .pages i{
-	color:#999;
+.pages .active a{
+	color:#0C0A07;
+	font-size:23px;
+	width:40px;
+	height:40px;
+	line-height: 40px;
+	background-color:#846F50;
+	margin-top: -10px;
 }
 
-.works .pages li.disabled a{
-	border-color: #ccc;
-}
-
-.works .pages li.disabled i{
-	color:#ccc;
-}
-
-.works .open {
+.open {
 	display:none;
 	position:fixed;
 	top: 0;
@@ -169,7 +103,7 @@ h1,h2,h3,h4,h5,h6{
 	background: #000\9;
 }
 
-.works .box{
+.open .box{
 	position: relative;
 	background: #fff;
 	width: 900px;
@@ -177,24 +111,24 @@ h1,h2,h3,h4,h5,h6{
 	overflow: hidden;
 }
 
-.works .slider,.works .info{
+.open .slider,.works .info{
 	position: relative;
 	float: left;
 	width: 450px;
 }
 
-.works .info{
+.open .info{
 	width: 450px;
 	padding: 50px;
 	height: 100%;
 }
 
-.works .swiper-container{
+.open .swiper-container{
 	width:450px;
 	height:450px;
 }
 
-.works .arrow-left,.works .arrow-right{
+.open .arrow-left,.open .arrow-right{
 	position: absolute;
 	top: 50%;
 	margin-top: -15px;
@@ -203,26 +137,26 @@ h1,h2,h3,h4,h5,h6{
 	z-index: 2;
 }
 
-.works .arrow-left {
+.open .arrow-left {
 	left: 10px;
 }
 
-.works .arrow-right {
+.open .arrow-right {
 	right: 10px;
 }
 
-.works .info h2{
+.open .info h2{
 	color:#656464;
 }
 
-.works .info p{
+.open .info p{
 	line-height: 1.8em;
 	color:#656464;
 	height: 80%;
 	overflow: auto;
 }
 
-.works .close{
+.open .close{
 	position: absolute;
 	top: 10px;
 	right: 15px;
@@ -230,11 +164,11 @@ h1,h2,h3,h4,h5,h6{
 	font-size: 22px;
 }
 
-.works .close:hover{
+.open .close:hover{
 	color: #000;
 }
 
-.works .share{
+.open .share{
 	position: absolute;
 	bottom: 10px;
 	right: 10px;

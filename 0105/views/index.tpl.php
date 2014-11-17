@@ -74,7 +74,7 @@
         </div>
         <?php elseif( $this->pn=='message' ):?>
         <form class="message">
-            <input type="text" id="uname" value="" placeholder="姓名">
+            <input type="text" id="title" value="" placeholder="姓名">
             <input type="email" id="email" value="" placeholder="邮箱">
             <textarea id="content" placeholder="留言内容"></textarea>
             <div class="btn"><button type="button" id="message_send">发 送</button></div>

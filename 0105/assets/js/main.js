@@ -75,13 +75,13 @@ require(['browser'], function() {
 	if( $('#message_send').length ) {
 		$('#message_send').click(function(){
 			
-			var uname = $('#uname').val();
+			var title = $('#title').val();
 			var email = $('#email').val();
 			var content = $('#content').val();
 			
-			if( !uname ) {
+			if( !title ) {
 				alert('请填写您的姓名！');
-				$('#uname').focus();
+				$('#title').focus();
 				return false;
 			}
 
@@ -105,7 +105,7 @@ require(['browser'], function() {
 			
 			$(this).attr('disabled',true).css('background','#707070').text('请稍候...');
 			
-			$.post('forms/message.php',{'uname':uname,'email':email,'content':content},function(json){
+			$.post('forms/message.php',{'title':title,'email':email,'content':content},function(json){
 				if( json.result=='success' ) {
 					alert('留言成功，感谢您的支持！');
 					location.reload();

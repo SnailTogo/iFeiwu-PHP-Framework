@@ -3,11 +3,11 @@ define('START_TIME', microtime(1));
 require_once '../config.inc.php';
 require_once '../functions.inc.php';
 
-$uname   = Request::post('uname');
+$title   = Request::post('title');
 $email   = Request::post('email');
 $content = Request::post('content');
 
-if( !$uname && !$email && !$content) {
+if( !$title && !$email && !$content) {
     
 }
 
@@ -15,7 +15,7 @@ $db     = db_get_connect();
 $result = $db->insert(DB_PREFIX.'messages',array(
     'snid' => 12,
     'ctime' => time(),
-    'uname' => $uname,
+    'title' => $title,
     'email' => $email,
     'content' => $content
 ));
@@ -47,8 +47,8 @@ if( $result )
         $crypt  = new Crypt();
         $config['smtp_pass'] = $crypt->decrypt($config['smtp_pass'],$config['fwy_token']);
         $mailer = new Mailer($config);
-        $mailer->set_title($uname.'：留言反馈');
-        $mailer->set_content("<p>客户姓名：$uname</p><p>客户邮箱: $email</p><p>留言内容：$content</p>");
+        $mailer->set_title($title.'：留言反馈');
+        $mailer->set_content("<p>客户姓名：$title</p><p>客户邮箱: $email</p><p>留言内容：$content</p>");
         $mailer->add_address(explode(',', $config['smtp_to_email']));
         $mailer->add_cc(explode(',', $config['smtp_cc_email']));
         $mailer->add_bcc(explode(',', $config['smtp_bcc_email']));
