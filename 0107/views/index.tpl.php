@@ -29,7 +29,7 @@
     </ul>
     <div class="overlay" id="show_item">
         <div class="dialog">
-            <a href="#" class="close"><i class="icon-close"></i></a>
+            <a href="#" class="close"></a>
             <iframe width="100%" frameborder="0"></iframe>
         </div>
     </div>

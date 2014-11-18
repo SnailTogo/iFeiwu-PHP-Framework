@@ -9,40 +9,64 @@
 <link rel="stylesheet" href="assets/swiper/style.css">
 <link rel="stylesheet" href="assets/css/app.css">
 </head>
-<body>
+<body style="overflow:hidden;background:#EEEBEC;">
 
 <div class="item">
-    <h2>这是标题</h2>
+    <h2><?php echo $this->item['title'];?></h2>
     <div class="slider">
-    	<a class="arrow-left"><i class="icon-arrow-left"></i></a>
-        <a class="arrow-right"><i class="icon-arrow-right"></i></a>
+    	<a class="arrow-left"></a>
+        <a class="arrow-right"></a>
         <div class="swiper-container">
-            <?php foreach($this->imgs as $img):?>
-        	<div class="swiper-wrapper"><img src="<?php echo $img['image_path'].'/'.$img['image'];?>"></div>
+        	<div class="swiper-wrapper">
+        	<?php foreach($this->imgs as $img):?>
+        	   <div class="swiper-slide"><img src="<?php echo $img['image_path'].'/'.$img['image'];?>"></div>
         	<?php endforeach;?>
+        	</div>
         </div>
     </div>
-    <p>这是描述</p>
-    <a href="">询 价</a>
+    <div class="content"><?php echo $this->item['content'];?></div>
+    <a href="javascript:;" class="inquiry">询 价</a>
 </div>
 
 <script src="assets/js/jquery.js"></script>
 <script src="assets/swiper/script.js"></script>
 <script>
-var slider = $('.swiper-container').swiper({autoplay:3000,loop:true});
-$('.arrow-left').on('click', function(e) {
-	e.preventDefault();
-	slider.swipePrev();
-});
-$('.arrow-right').on('click', function(e) {
-	e.preventDefault();
-	slider.swipeNext();
-});
-
-$(window.parent.document).find("#show_item iframe").load(function(){
-	var main = $(window.parent.document).find("#show_item iframe");
-	var height = $(document).height();
-	if( height>0 ) main.height(height);
+$(function(){
+	
+	var slide_count = '<?php echo count($this->imgs);?>';
+	var slider = $('.swiper-container').swiper({
+	   autoplay:3000,
+	   calculateHeight:true,
+	   onInit : function(swiper){
+	       if( slide_count-1>0 ) {
+	           $('.arrow-right').show();
+	       }
+	   },
+	   onSlideChangeStart: function(swiper){
+            if( swiper.activeIndex==slide_count-1 ) {
+                $('.arrow-right').hide();
+                $('.arrow-left').show();
+            }
+            if( swiper.activeIndex==0 ) {
+            	$('.arrow-left').hide();
+            	$('.arrow-right').show();
+            }
+	   }
+	});
+    $('.arrow-left').on('click', function(e) {
+    	e.preventDefault();
+    	slider.swipePrev();
+    });
+    $('.arrow-right').on('click', function(e) {
+    	e.preventDefault();
+    	slider.swipeNext();
+    });
+    
+    $(window.parent.document).find("#show_item iframe").load(function(){
+    	var main = $(window.parent.document).find("#show_item iframe");
+    	var height = $(document).height();
+    	if( height>0 ) main.height(height);
+    });
 });
 </script>
 <?php echo htmlspecialchars_decode($this->keys['tongji_code']);?>

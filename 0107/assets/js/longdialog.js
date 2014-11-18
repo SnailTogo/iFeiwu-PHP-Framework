@@ -22,15 +22,16 @@
             e.preventDefault();
         });
         
-        dialog.on("click keyup", function (e) {
+        $('.close').on("click keyup", function (e) {
             if (typeof e.keyCode !== "undefined" && e.keyCode !== 27 /* Esc */) {
                 return;
             }
-            $(this).fadeOut("fast", function () {
+            dialog.fadeOut("fast", function () {
                 body.css("overflow", "");
                 main.css("width", "");
                 dialog.css("top", "");
-                $(this).attr("tabindex", "");
+                dialog.attr("tabindex", "");
+                $('#show_item iframe').css('height',0);
                 if (typeof options.close === "function") {
                     options.close.call(dialog);
                 }

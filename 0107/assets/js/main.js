@@ -17,7 +17,7 @@ require(['longdialog'], function() {
 		}
 	);
 	
-	$('#show_item iframe').css('height',document.body.offsetHeight+'px');
+	$('#show_item iframe').css('height',document.body.clientHeight+'px');
 
 	$('.items a').on('click', function(){
 		var id = $(this).data('id');
