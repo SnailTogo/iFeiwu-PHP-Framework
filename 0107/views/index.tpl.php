@@ -13,26 +13,26 @@
 <link href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/114/h/114" rel="apple-touch-icon" sizes="114x114">
 <link href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/120/h/120" rel="apple-touch-icon" sizes="120x120">
 <link rel="stylesheet" href="assets/css/reset.css">
-<link rel="stylesheet" href="assets/swiper/style.css">
 <link rel="stylesheet" href="assets/css/app.css">
 </head>
 <body style="background-color:<?php echo $this->keys['global_bg_color'];?>;">
 
 <div class="wrap">
-    <header>
-        <img src="<?php echo $this->keys['header_image_pc'];?>">
-    </header>
+    <img src="<?php echo $this->keys['header_image_pc'];?>">
     <ul class="ul items">
         <?php foreach($this->items as $item):?>
-        <li><a href="#<?php echo $item['id'];?>" data-id="<?php echo $item['id'];?>"><img src="<?php echo $item['image_path'];?>/<?php echo $item['image'];?>" alt="<?php echo $item['title'];?>"></a></li>
+        <li><a href="javascript:;" data-id="<?php echo $item['id'];?>"><img src="<?php echo $item['image_path'];?>/<?php echo $item['image'];?>" alt="<?php echo $item['title'];?>"></a></li>
         <?php endforeach;?>
     </ul>
     <ul class="ul pages">
         <?php echo $this->pagebar;?>
     </ul>
-    <div class="show-item">
-        
-	</div>
+    <div class="overlay" id="show_item">
+        <div class="dialog">
+            <a href="#" class="close"><i class="icon-close"></i></a>
+            <iframe width="100%" frameborder="0"></iframe>
+        </div>
+    </div>
 	<div class="line">&nbsp;</div>
     <form class="message">
         <h2>Contact Us</h2>
@@ -51,7 +51,6 @@
         </div>
     </form>
 </div>
-<script src="assets/js/iscroll.js"></script>
 <script data-main="assets/js/main" src="assets/require.js"></script>
 <?php echo htmlspecialchars_decode($this->keys['tongji_code']);?>
 </body>

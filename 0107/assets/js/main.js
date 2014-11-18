@@ -1,10 +1,12 @@
 require.config({
 	baseUrl: 'assets/js',
 	paths: {},
-	shim: {},
+	shim: {
+		'longdialog':['jquery']
+	},
 	urlArgs: "v=20141013"
 });
-require(['jquery'], function() {
+require(['longdialog'], function() {
 	
 	$('.items a').hover(
 		function() {
@@ -14,10 +16,15 @@ require(['jquery'], function() {
 			$(this).find('.mask').remove();
 		}
 	);
+	
+	$('#show_item iframe').css('height',document.body.offsetHeight+'px');
 
 	$('.items a').on('click', function(){
-		$('.show-item').show();
+		var id = $(this).data('id');
+		$('#show_item iframe').attr('src','item.php?id='+id);
 	});
+	
+	$(".overlay").longDialog({openButton: $(".items a"),mainContainer: $(".wrap")});
 	
 	if( $('#message_send').length ) {
 		$('#message_send').click(function(){
