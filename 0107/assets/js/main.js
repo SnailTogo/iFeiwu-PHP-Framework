@@ -1,76 +1,23 @@
 require.config({
 	baseUrl: 'assets/js',
-	paths: {
-		'swiper': '../swiper/script'
-	},
-	shim: {
-		'browser':['jquery'],
-		'swiper':['jquery']
-	},
+	paths: {},
+	shim: {},
 	urlArgs: "v=20141013"
 });
-require(['browser'], function() {
-
-	$('.works .items a').on('click', function(){
-		$('.works .open').show();
-		$.getJSON('forms/get_works.php',{id:$(this).data('id')},function(json){
-			if( json && json.item && json.imgs ) {
-				$('.info h2').text(json.item.title);
-				$('.info p').html(json.item.content);
-				slider.removeAllSlides();
-				var imgs_count = json.imgs.length;
-				for (var i = 0; i < imgs_count; i++) {
-					slider.appendSlide('<img src="'+json.imgs[i].image_path+'/'+json.imgs[i].image+'">');
-				}
-				if( imgs_count<=1 ) {
-					slider.stopAutoplay();
-					$('.arrow-left,.arrow-right').hide();
-				} else {
-					slider.startAutoplay();
-					$('.arrow-left,.arrow-right').show();
-				}
-			}
-			fwscroll.refresh();
-			document.addEventListener('touchmove', touchmove_handler, false);
-		});
-	});
+require(['jquery'], function() {
 	
-	if( $('.swiper-container').length ) {
-		var slider;
-		require(['swiper'], function() {
-			slider = $('.swiper-container').swiper({autoplay:3000,loop:true});
-			$('.arrow-left').on('click', function(e) {
-				e.preventDefault();
-				slider.swipePrev();
-			});
-			$('.arrow-right').on('click', function(e) {
-				e.preventDefault();
-				slider.swipeNext();
-			});
-			$('.works .open').on('click', function(e) {
-				if( $(e.target).is('.icon-close') || $(e.target).is('.open')) {
-					$('.works .open').hide();
-					document.removeEventListener('touchmove', touchmove_handler, false);
-				}
-			});
-		});
-	}
-
-	if( $.browser.msie&&$.browser.version<10){
-		require(['placeholder'], function() {
-			$('input,textarea').placeholder();
-		});
-	} else {
-		if( $('#is-wrapper').length ) {
-			var touchmove_handler = function (e) { e.preventDefault(); }
-			var fwscroll = new IScroll('#is-wrapper',{mouseWheel:true,click:true});
-			$(window).resize(function() {
-				setTimeout(function(){
-					fwscroll.refresh();
-				},500);
-			});
+	$('.items a').hover(
+		function() {
+			var title = $(this).find('img').attr('alt');
+			$(this).append('<div class="mask">'+title+'</div>');
+		}, function() {
+			$(this).find('.mask').remove();
 		}
-	}
+	);
+
+	$('.items a').on('click', function(){
+		$('.show-item').show();
+	});
 	
 	if( $('#message_send').length ) {
 		$('#message_send').click(function(){

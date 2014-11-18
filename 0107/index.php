@@ -4,10 +4,11 @@ include 'bootstrap.inc.php';
 
 $page = $_GET['page'];
 $page = $page?$page-1:0;
-$perpage = 6;
+$perpage = 2;
 
 $items = $db->select(DB_PREFIX.'items', array(
     'id',
+    'title',
     'image',
     'image_path'
 ), array(
