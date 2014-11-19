@@ -38,17 +38,18 @@
         <h2>Contact Us</h2>
         <div class="f1">
             <label>姓名</label>
-            <input type="text" id="title" value="">
+            <input type="text" id="title" value="冯思民">
             <label>邮箱</label>
-            <input type="email" id="email" value="">
+            <input type="email" id="email" value="fengsimin@gmail.com">
         </div>
         <div class="f2">
             <label>留言内容</label>
-            <textarea id="content"></textarea>
+            <textarea id="content">好喜欢你的作品</textarea>
         </div>
         <div class="f3">
             <button type="button" id="message_send">提 交</button>
         </div>
+        <input type="hidden" id="token" value="<?php echo $this->form_token;?>">
     </form>
 </div>
 <script data-main="assets/js/main" src="assets/require.js"></script>

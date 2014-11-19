@@ -1,6 +1,6 @@
 <?php defined('START_TIME') OR die();
 
-ini_set('error_reporting', E_ALL);
+ini_set('error_reporting', E_WARNING);
 ini_set('display_errors', 0);
 ini_set('date.timezone', 'PRC');
 

@@ -50,4 +50,5 @@ $keys = db_get_keys(array(
 $tpl->assign('pagebar', $pager->show(6));
 $tpl->assign('items', $items);
 $tpl->assign('keys', $keys);
+$tpl->assign('form_token', form_get_token());
 $tpl->display('views/index.tpl.php');

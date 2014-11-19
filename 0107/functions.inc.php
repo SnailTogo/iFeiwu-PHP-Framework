@@ -28,7 +28,7 @@ function _log($message)
 }
 
 /**************************************************************************
- * 下面是项目自定义函数
+ * 项目自定义函数
  **************************************************************************/
 
 //连接数据库
@@ -59,18 +59,11 @@ function db_get_keys( $where )
     return $data;
 }
 
-//页面导航箭头输出
-function tpl_nav_arrow($cur, $def)
+//获取表单令牌
+function form_get_token()
 {
-    if( $cur==$def ){
-        echo '<div class="arrow"></div>';
-    }
-}
-
-//页面选中当前导航
-function tpl_nav_active($cur, $def)
-{
-    if( $cur==$def ){
-        echo 'class="active"';
-    }
+    $session = new Session();
+    $timestamp = microtime(true);
+    $session->set('form_token', $timestamp);
+    return md5($timestamp);
 }

@@ -29,6 +29,7 @@ require(['longdialog'], function() {
 	if( $('#message_send').length ) {
 		$('#message_send').click(function(){
 			
+			var token = $('#token').val();
 			var title = $('#title').val();
 			var email = $('#email').val();
 			var content = $('#content').val();
@@ -59,13 +60,13 @@ require(['longdialog'], function() {
 			
 			$(this).attr('disabled',true).css('background','#707070').text('请稍候...');
 			
-			$.post('forms/message.php',{'title':title,'email':email,'content':content},function(json){
+			$.post('forms/message.php',{'title':title,'email':email,'content':content,'token':token},function(json){
 				if( json.result=='success' ) {
 					alert('留言成功，感谢您的支持！');
 					location.reload();
 				} else {
 					alert('留言失败，请稍候再试！');
-					$('#message_send').attr('disabled',true);
+					$('#message_send').attr('disabled',false).css('background','#846F50').text('提 交');
 				}
 			},'JSON');
 		});
