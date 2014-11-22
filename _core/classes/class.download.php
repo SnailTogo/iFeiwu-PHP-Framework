@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * 下载文件类
+ * ==============================================
+ * @author fengsimin <fengsimin@gmail.com>
+ * @version (#)$Id$, 2014
+ * @link http://www.ifeiwu.com
+ */
 class Download
 {
 
