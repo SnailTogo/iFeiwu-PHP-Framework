@@ -4,7 +4,7 @@
  * 下载文件类
  * ==============================================
  * @author fengsimin <fengsimin@gmail.com>
- * @version svn:$Id$, 2014
+ * @version SVN: $Id: class.Webpage.inc.php 412 2010-12-29 09:45:53Z Jacky672 $
  * @link http://www.ifeiwu.com
  */
 class Download
