@@ -1,0 +1,183 @@
+*,:before,:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html,body {
+
+}
+
+html {
+	font-size: 75%;
+}
+
+body {
+	font-size: 1rem;
+	background-color: #ffffff;
+	background-image: url("../img/bg.jpg");
+	background-size: inherit;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+img {
+	border: 0;
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+	text-decoration: none;
+}
+
+input,textarea{
+	-webkit-appearance:none;
+}
+
+.wrap{
+	max-width: 640px;
+	margin:0 auto;
+}
+
+/*header*/
+header{
+	padding: 0.8rem 0 2rem;
+}
+
+header a{
+	display: block;
+	height: 5rem;
+	width: 5rem;
+	text-align: center;
+	color: #fff;
+	margin: 0 auto;
+}
+
+header .logo {
+    background: url("../img/logo.png");
+    background-size: 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 5rem;
+}
+
+nav {
+	margin-top: 7rem;
+	width: 100%;
+}
+
+nav a{
+	display: block;
+	float:left;
+	width:33.3333%;
+	padding:3rem 0;
+	border: 1px solid #fff;
+}
+
+nav a:nth-child(1),nav a:nth-child(3) {
+	border-left: none;
+	border-right: none;
+}
+
+nav a:nth-child(4),nav a:nth-child(6) {
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+
+nav a:nth-child(5){
+	border-top: none;
+}
+
+nav h2{
+	font-weight: normal;
+	text-align: center;
+	color:#fff;
+	margin: 1rem 0 0 0;
+}
+
+nav i{
+	display: block;
+	width: 2rem;
+	height: 2rem;
+	margin: 0 auto;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+nav a:nth-child(1) i{
+	 background-image: url("../img/icon-services.png");
+}
+nav a:nth-child(2) i{
+	 background-image: url("../img/icon-product.png");
+}
+nav a:nth-child(3) i{
+	 background-image: url("../img/icon-settings.png");
+}
+nav a:nth-child(4) i{
+	 background-image: url("../img/icon-about.png");
+}
+nav a:nth-child(5) i{
+	 background-image: url("../img/icon-news.png");
+}
+nav a:nth-child(6) i{
+	 background-image: url("../img/icon-solutions.png");
+}
+
+.ads {
+	padding: 8px;
+	border-radius: 10px;
+	background: #00ff99;
+	margin:0 3rem;
+}
+
+.ads img{
+	border-radius: 8px;
+}
+
+.ads a{
+	display:block;
+	font-size:0;
+	line-height:0;
+}
+
+.flex-control-nav{
+	bottom: -25px;
+}
+
+.flex-control-paging li a{
+	background: #fff;
+	width: 8px;
+	height: 8px;
+}
+
+.flex-control-paging li a.flex-active{
+	background: #00ff99;
+}
+
+
+/*
+    Legacy Firefox implementation treats all flex containers
+    as inline-block elements.
+*/
+
+@-moz-document url-prefix() {
+.flex-container {
+    width: 100%;
+    -moz-box-sizing: border-box;
+    }
+
+}
+
+@media screen and (min-width: 480px) {
+	html {
+		font-size: 87.5%;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	html {
+		font-size: 100%;
+	}
+}
