@@ -1,12 +1,19 @@
 <?php
-require_once CORE_PATH.'/Libs/Mailer/class.phpmailer.php';
+/**
+ * 结合PHPMailer封装易用的E-Mail发送类
+ * ==============================================
+ * @author fengsimin <fengsimin@gmail.com>
+ * @copyright 2014 飞屋工作室
+ * @link http://www.ifeiwu.com
+ */
+require_once CORE_PATH . '/Libs/Mailer/class.phpmailer.php';
 
 class Mailer
 {
 
     private $mailer;
 
-    function __construct($config)
+    function __construct ($config)
     {
         $this->mailer = new PHPMailer();
         $this->mailer->CharSet = 'UTF-8';
@@ -18,24 +25,25 @@ class Mailer
         $this->mailer->Port = $config['smtp_port'];
         $this->mailer->Username = $config['smtp_user'];
         $this->mailer->Password = $config['smtp_pass'];
-        $this->mailer->SetFrom($config['smtp_from_email'], $config['smtp_from_name']);
+        $this->mailer->SetFrom($config['smtp_from_email'], 
+                $config['smtp_from_name']);
         $this->mailer->SetLanguage('zh_cn');
     }
     
     // 邮件标题
-    function set_title($title)
+    function set_title ($title)
     {
         $this->mailer->Subject = $title;
     }
     
     // 邮件内容
-    function set_content($str)
+    function set_content ($str)
     {
         $this->mailer->MsgHTML($str);
     }
     
     // 添加收件人邮箱
-    function add_address($emails)
+    function add_address ($emails)
     {
         if (! empty($emails)) {
             if (is_array($emails)) {
@@ -49,7 +57,7 @@ class Mailer
     }
     
     // 添加抄送人邮箱
-    function add_cc($emails)
+    function add_cc ($emails)
     {
         if (! empty($emails)) {
             if (is_array($emails)) {
@@ -63,7 +71,7 @@ class Mailer
     }
     
     // 添加密送人邮箱
-    function add_bcc($emails)
+    function add_bcc ($emails)
     {
         if (! empty($emails)) {
             if (is_array($emails)) {
@@ -77,7 +85,7 @@ class Mailer
     }
     
     // 添加附件
-    function add_attachment($files)
+    function add_attachment ($files)
     {
         if (! empty($files)) {
             if (is_array($files)) {
@@ -93,7 +101,7 @@ class Mailer
     }
     
     // 发送邮件
-    function send()
+    function send ()
     {
         return $this->mailer->Send() ? true : false;
     }
