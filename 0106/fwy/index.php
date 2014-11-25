@@ -8,8 +8,8 @@ echo <<<END
 <style>html,body{height:100%;padding:0;margin:0;overflow:hidden;}</style>
 </head>
 <body>
-<iframe id="fwy_ifr" src="http://ifeiwu.vicp.net/yun/works/index.php?domain=0106.com&pn=base0106" width="100%" height="100%" frameborder="0"></iframe>
-<script src="http://ifeiwu.vicp.net/yun/main/assets/js/login_origin.js"></script>
+<iframe id="fwy_ifr" src="http://yun.ifeiwu.com/1/w/index.php?domain=0106.com&pn=base0106" width="100%" height="100%" frameborder="0"></iframe>
+<script src="http://yun.ifeiwu.com/1/main/assets/js/login_origin.js"></script>
 </body>
 </html>
 END;

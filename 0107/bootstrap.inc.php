@@ -15,6 +15,7 @@ $is_mobile = $_GET['mobile'];
 $detect = new MobileDetect;
 if( !$is_mobile ) {
     $is_mobile = $detect->isMobile() && !$detect->isTablet()?true:false;
+    $tpl->assign('is_mobile', $is_mobile);
 }
 
 // 数据库

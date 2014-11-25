@@ -1,8 +1,11 @@
 require.config({
 	baseUrl: 'assets/js',
-	paths: {},
+	paths: {
+		'remodal':'../remodal/script'
+	},
 	shim: {
-		'longdialog':['jquery']
+		'longdialog':['jquery'],
+		'remodal':['jquery']
 	},
 	urlArgs: "v=20141013"
 });
@@ -17,14 +20,61 @@ require(['longdialog'], function() {
 		}
 	);
 	
-	$('#show_item iframe').css('height',document.body.clientHeight+'px');
-
-	$('.items a').on('click', function(){
-		var id = $(this).data('id');
-		$('#show_item iframe').attr('src','item.php?id='+id);
-	});
+	if( $('.overlay').length ) {
+		
+		$('#show_item iframe').css('height',document.body.clientHeight+'px');
+		
+		$('.items').on('click', 'a', function(){
+			var id = $(this).data('id');
+			var src = 'item.php?id='+id;
+			if( is_mobile ) {
+				src += '&d=m_'; 
+			}
+			$('#show_item iframe').attr('src', src);
+		});
+		
+		$('.overlay').longDialog({openButton: $('.items a'),mainContainer: $('.wrap')});
+	}
 	
-	$(".overlay").longDialog({openButton: $(".items a"),mainContainer: $(".wrap")});
+	if( $('.remodal').length ) {
+		require(['remodal'], function() {
+			
+			$(document).on('close', '.remodal', function () {
+			    $('#ifr_item').css('height',0);
+			});
+			
+			var remodal=$('[data-remodal-id=modal]').remodal();
+	
+			$('#ifr_item').css('height',document.body.clientHeight+'px');
+			$('.items').on('click', 'a', function(){
+		        var id = $(this).data('id');
+				var src = 'item.php?id='+id;
+				if( is_mobile ) {
+					src += '&d=m_'; 
+				}
+				$('#ifr_item').attr('src', src);
+				remodal.open();
+		    });
+		});
+	}
+	
+	if( $('#more').length ) {
+		$('#more').click(function(){
+			$('#more').text('loading...');
+			var page = $(this).data('page');
+			$.getJSON('forms/items_loading.php',{'page':page},function(json) {
+				if (json.page > 0) {
+					$('#more').data('page', json.page).html('More');
+				} else {
+					$('#more').remove();
+				}
+				if (json.html != '') {
+					$('.items').append(json.html);
+				}
+			});
+			
+		});
+	}
 	
 	if( $('#message_send').length ) {
 		$('#message_send').click(function(){

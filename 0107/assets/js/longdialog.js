@@ -7,7 +7,7 @@
             html = $("html");
 
         
-        openButton.click(function (e) {
+        $('.items').on('click', 'a', function (e) {
             main.css("width", main.width() + "px");
             body.css("overflow", "hidden");
             var bst = body.scrollTop(),

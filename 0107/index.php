@@ -1,33 +1,5 @@
-<?php
-define('START_TIME', microtime(1));
+<?php define('START_TIME', microtime(1));
 include 'bootstrap.inc.php';
-
-$page = $_GET['page'];
-$page = $page?$page-1:0;
-$perpage = 2;
-
-$items = $db->select(DB_PREFIX.'items', array(
-    'id',
-    'title',
-    'image',
-    'image_path'
-), array(
-    'AND'=>array(
-        'state' => 1,
-        'snid' => 11
-    ),
-    'ORDER' => array('orderby DESC','ctime DESC'),
-    'LIMIT' => array($page*$perpage,$perpage)
-));
-
-$total = $db->count(DB_PREFIX.'items',array(
-    'AND'=>array(
-        'state' => 1,
-        'snid' => 11
-    )
-));
-
-$pager = new Pager(array('total'=>$total,'perpage'=>$perpage));
 
 $keys = db_get_keys(array(
     'AND' => array(
@@ -47,8 +19,58 @@ $keys = db_get_keys(array(
     )
 ));
 
-$tpl->assign('pagebar', $pager->show(6));
-$tpl->assign('items', $items);
-$tpl->assign('keys', $keys);
-$tpl->assign('form_token', form_get_token());
-$tpl->display('views/index.tpl.php');
+if( $is_mobile )
+{
+    $items = $db->select(DB_PREFIX.'items', array(
+        'id',
+        'title',
+        'image',
+        'image_path'
+    ), array(
+        'AND'=>array(
+            'state' => 1,
+            'snid' => 11
+        ),
+        'ORDER' => array('orderby DESC','ctime DESC'),
+        'LIMIT' => array(0,4)
+    ));
+    
+    $tpl->assign('items', $items);
+    $tpl->assign('keys', $keys);
+    $tpl->assign('form_token', form_get_token());
+    $tpl->display('views/m_index.tpl.php');
+}
+else
+{
+    $page = $_GET['page'];
+    $page = $page?$page-1:0;
+    $perpage = 2;
+    
+    $items = $db->select(DB_PREFIX.'items', array(
+        'id',
+        'title',
+        'image',
+        'image_path'
+    ), array(
+        'AND'=>array(
+            'state' => 1,
+            'snid' => 11
+        ),
+        'ORDER' => array('orderby DESC','ctime DESC'),
+        'LIMIT' => array($page*$perpage,$perpage)
+    ));
+    
+    $total = $db->count(DB_PREFIX.'items',array(
+        'AND'=>array(
+            'state' => 1,
+            'snid' => 11
+        )
+    ));
+    
+    $pager = new Pager(array('total'=>$total,'perpage'=>$perpage));
+    $tpl->assign('pagebar', $pager->show(6));
+    $tpl->assign('items', $items);
+    $tpl->assign('keys', $keys);
+    $tpl->assign('form_token', form_get_token());
+    $tpl->display('views/index.tpl.php');
+}

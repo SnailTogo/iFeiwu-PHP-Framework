@@ -7,7 +7,7 @@
 <meta name="renderer" content="webkit">
 <link rel="stylesheet" href="assets/css/reset.css">
 <link rel="stylesheet" href="assets/swiper/style.css">
-<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/<?php echo $_GET['d'];?>app.css">
 </head>
 <body style="overflow:hidden;background:#EEEBEC;">
 
@@ -62,8 +62,8 @@ $(function(){
     	slider.swipeNext();
     });
     
-    $(window.parent.document).find("#show_item iframe").load(function(){
-    	var main = $(window.parent.document).find("#show_item iframe");
+    $(window.parent.document).find("#ifr_item").load(function(){
+    	var main = $(window.parent.document).find("#ifr_item");
     	var height = $(document).height();
     	if( height>0 ) main.height(height);
     });
