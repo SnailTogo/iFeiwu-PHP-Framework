@@ -14,21 +14,18 @@
 <link href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/120/h/120" rel="apple-touch-icon" sizes="120x120">
 <link rel="stylesheet" href="assets/css/reset.css">
 <link rel="stylesheet" href="assets/remodal/style.css">
+<link rel="stylesheet" href="assets/css/fw_modal.css">
 <link rel="stylesheet" href="assets/css/m_app.css">
 </head>
-<body style="background-color:<?php echo $this->keys['global_bg_color'];?>;">
-
+<body style="background-color:<?php echo $this->keys['global_bg_color'];?>;overflow:hidden;">
+     
 <div class="wrap">
     <img src="<?php echo $this->keys['header_image_m'];?>">
     <ul class="ul items">
         <?php include_once 'items_loading.tpl.php';?>
     </ul>
     <a id="more" href="javascript:;">More</a>
-    <div class="remodal-bg">
-        <div class="remodal" data-remodal-id="modal">
-            <iframe id="ifr_item" width="100%" frameborder="0"></iframe>
-        </div>
-    </div>
+    
     <form class="message">
         <h2>Contact Us</h2>
         <input type="text" id="title" value="冯思民" placeholder="姓名">
@@ -37,6 +34,12 @@
         <button type="button" id="message_send">提 交</button>
         <input type="hidden" id="token" value="<?php echo $this->form_token;?>">
     </form>
+</div>
+
+<div class="fw_modal">
+    <div class="fw_modal-body">
+        <iframe id="ifr_item" width="100%" frameborder="0"></iframe>
+    </div>
 </div>
 <script>
 var is_mobile = '<?php echo $this->is_mobile;?>';

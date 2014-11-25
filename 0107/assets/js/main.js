@@ -5,11 +5,23 @@ require.config({
 	},
 	shim: {
 		'longdialog':['jquery'],
-		'remodal':['jquery']
+		'remodal':['jquery'],
+		'fw.modal':['jquery']
 	},
 	urlArgs: "v=20141013"
 });
-require(['longdialog'], function() {
+require(['longdialog','fw.modal'], function() {
+	
+	var fwm = $('.items a').fw_modal('', {
+		onclick: function ( e ){
+			var id = $(e.currentTarget).data('id');
+			var src = 'item.php?id='+id;
+			if( is_mobile ) {
+				src += '&d=m_'; 
+			}
+			$('#ifr_item').attr('src', src);
+		}
+	});
 	
 	$('.items a').hover(
 		function() {
@@ -36,7 +48,7 @@ require(['longdialog'], function() {
 		$('.overlay').longDialog({openButton: $('.items a'),mainContainer: $('.wrap')});
 	}
 	
-	if( $('.remodal').length ) {
+	/*if( $('.remodal').length ) {
 		require(['remodal'], function() {
 			
 			$(document).on('close', '.remodal', function () {
@@ -56,7 +68,7 @@ require(['longdialog'], function() {
 				remodal.open();
 		    });
 		});
-	}
+	}*/
 	
 	if( $('#more').length ) {
 		$('#more').click(function(){
@@ -69,7 +81,7 @@ require(['longdialog'], function() {
 					$('#more').remove();
 				}
 				if (json.html != '') {
-					$('.items').append(json.html);
+					$('.items').append(json.html);fwm.reinit();
 				}
 			});
 			
