@@ -1,25 +1,24 @@
 require.config({
 	baseUrl: 'assets/js',
-	paths: {
-		'remodal':'../remodal/script'
-	},
+	paths: {},
 	shim: {
-		'longdialog':['jquery'],
-		'remodal':['jquery'],
 		'fw.modal':['jquery']
 	},
 	urlArgs: "v=20141013"
 });
-require(['longdialog','fw.modal'], function() {
+require(['fw.modal'], function() {
 	
-	var fwm = $('.items a').fw_modal('', {
-		onclick: function ( e ){
+	var fwm = $(document.body).fw_modal('.items a', {
+		open: function ( e ){
 			var id = $(e.currentTarget).data('id');
 			var src = 'item.php?id='+id;
 			if( is_mobile ) {
 				src += '&d=m_'; 
 			}
 			$('#ifr_item').attr('src', src);
+		},
+		close: function ( e ) {
+			$('#ifr_item').css('height', 0);
 		}
 	});
 	
@@ -32,44 +31,10 @@ require(['longdialog','fw.modal'], function() {
 		}
 	);
 	
-	if( $('.overlay').length ) {
-		
-		$('#show_item iframe').css('height',document.body.clientHeight+'px');
-		
-		$('.items').on('click', 'a', function(){
-			var id = $(this).data('id');
-			var src = 'item.php?id='+id;
-			if( is_mobile ) {
-				src += '&d=m_'; 
-			}
-			$('#show_item iframe').attr('src', src);
-		});
-		
-		$('.overlay').longDialog({openButton: $('.items a'),mainContainer: $('.wrap')});
-	}
-	
-	/*if( $('.remodal').length ) {
-		require(['remodal'], function() {
-			
-			$(document).on('close', '.remodal', function () {
-			    $('#ifr_item').css('height',0);
-			});
-			
-			var remodal=$('[data-remodal-id=modal]').remodal();
-	
-			$('#ifr_item').css('height',document.body.clientHeight+'px');
-			$('.items').on('click', 'a', function(){
-		        var id = $(this).data('id');
-				var src = 'item.php?id='+id;
-				if( is_mobile ) {
-					src += '&d=m_'; 
-				}
-				$('#ifr_item').attr('src', src);
-				remodal.open();
-		    });
-		});
-	}*/
-	
+	window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function () {
+        document.getElementById('ifr_item').contentWindow.location.reload();
+    }, false);
+
 	if( $('#more').length ) {
 		$('#more').click(function(){
 			$('#more').text('loading...');
@@ -81,7 +46,7 @@ require(['longdialog','fw.modal'], function() {
 					$('#more').remove();
 				}
 				if (json.html != '') {
-					$('.items').append(json.html);fwm.reinit();
+					$('.items').append(json.html);
 				}
 			});
 			
@@ -121,7 +86,7 @@ require(['longdialog','fw.modal'], function() {
 			}
 			
 			$(this).attr('disabled',true).css('background','#707070').text('请稍候...');
-			
+
 			$.post('forms/message.php',{'title':title,'email':email,'content':content,'token':token},function(json){
 				if( json.result=='success' ) {
 					alert('留言成功，感谢您的支持！');

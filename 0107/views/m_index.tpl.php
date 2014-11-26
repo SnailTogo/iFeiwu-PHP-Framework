@@ -14,7 +14,6 @@
 <link href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/120/h/120" rel="apple-touch-icon" sizes="120x120">
 <link rel="stylesheet" href="assets/css/reset.css">
 <link rel="stylesheet" href="assets/remodal/style.css">
-<link rel="stylesheet" href="assets/css/fw_modal.css">
 <link rel="stylesheet" href="assets/css/m_app.css">
 </head>
 <body style="background-color:<?php echo $this->keys['global_bg_color'];?>;overflow:hidden;">
@@ -25,7 +24,6 @@
         <?php include_once 'items_loading.tpl.php';?>
     </ul>
     <a id="more" href="javascript:;">More</a>
-    
     <form class="message">
         <h2>Contact Us</h2>
         <input type="text" id="title" value="冯思民" placeholder="姓名">
@@ -38,13 +36,14 @@
 
 <div class="fw_modal">
     <div class="fw_modal-body">
+        <a href="javascript:;" class="fw_modal-close"></a>
         <iframe id="ifr_item" width="100%" frameborder="0"></iframe>
     </div>
 </div>
-<script>
-var is_mobile = '<?php echo $this->is_mobile;?>';
-</script>
+
+<script>var is_mobile = '<?php echo $this->is_mobile;?>';</script>
 <script data-main="assets/js/main" src="assets/require.js"></script>
 <?php echo htmlspecialchars_decode($this->keys['tongji_code']);?>
+
 </body>
 </html>

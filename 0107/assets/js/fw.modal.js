@@ -10,7 +10,7 @@
         $.fw = {};
     }
 
-    $.fw.modal = function ( el, params, options ) {
+    $.fw.modal = function ( el, selector, options ) {
     	
         var base = this;
 
@@ -20,28 +20,53 @@
         base.$el.data( "fw.modal" , base );
 
         base.init = function () {
-            base.params = params;
+            base.selector = selector;
             base.options = $.extend({},$.fw.modal.defaultOptions, options);
-            $.each( base.$el, function (i,el) {console.log();
-            	$(el).on('click', function ( e ) {
-	            	e.preventDefault();
-	            	if ( typeof base.options.onclick=='function' ) {
-	            		base.options.onclick( e );
+            
+            if( base.selector!='' ) { //实现动态绑定页面元素
+            	base.$el.on('click', base.selector, function (e) {
+            		e.preventDefault();
+            		if ( typeof base.options.open=='function' ) {
+	            		base.options.open( e );
 	            	}
 	            	base.open();
+            	});
+            } else {
+            	//所有选择元素添加单击事件
+	            $.each( base.$el, function ( i, el ) {
+	            	$(el).on('click', function ( e ) {
+		            	e.preventDefault();
+		            	if ( typeof base.options.open=='function' ) {
+		            		base.options.open( e );
+		            	}
+		            	base.open();
+		            });
 	            });
-            });
+            }
             
+            //单击关闭弹出层按钮事件
+            $('.fw_modal-close').click(function ( e ) {
+        		e.preventDefault();
+        		if ( typeof base.options.close=='function' ) {
+            		base.options.close( e );
+            	}
+        		base.close();
+        	});
         };
 
         base.open = function () {
-        	$("html, body").addClass("fw_modal-lock fw_modal-active");
-        	$(".fw_modal").show();
-        	$(".fw_modal-body").css("visibility","visible");
+        	base.scrollTop = $(window).scrollTop();
+        	$(".fw_modal").fadeIn("fast", function () {
+        		$("html, body").css("overflow", "hidden");
+        		$('.fw_modal-body').css('visibility', 'visible');
+        	});
         };
         
-        base.reinit = function ( select ) {
-        	console.log(base);
+        base.close = function () {
+        	$("html, body").animate({"scrollTop":base.scrollTop}, 300);
+    		$(".fw_modal").fadeOut("fast", function () {
+        		$("html, body").css("overflow", "");
+        	});
         }
         
         base.init();
@@ -50,13 +75,14 @@
     $.fw.modal.defaultOptions = {
         width: "",
         height: "",
-        onclick: ""
+        open: "",
+        close: ""
     };
 
-    $.fn.fw_modal = function ( params, options ) {
+    $.fn.fw_modal = function ( selector, options ) {
     	var _modal;
         this.each(function () {
-            _modal = new $.fw.modal(this, params, options);
+            _modal = new $.fw.modal(this, selector, options);
         });
         return _modal;
     };

@@ -31,10 +31,11 @@
 <script src="assets/js/jquery.js"></script>
 <script src="assets/swiper/script.js"></script>
 <script>
+var slider;
 $(function(){
 	
 	var slide_count = '<?php echo count($this->imgs);?>';
-	var slider = $('.swiper-container').swiper({
+	slider = $('.swiper-container').swiper({
 	   autoplay:3000,
 	   calculateHeight:true,
 	   onInit : function(swiper){
@@ -43,13 +44,13 @@ $(function(){
 	       }
 	   },
 	   onSlideChangeStart: function(swiper){
+            $('.arrow-left').show();
+            $('.arrow-right').show();
             if( swiper.activeIndex==slide_count-1 ) {
                 $('.arrow-right').hide();
-                $('.arrow-left').show();
             }
             if( swiper.activeIndex==0 ) {
             	$('.arrow-left').hide();
-            	$('.arrow-right').show();
             }
 	   }
 	});
@@ -67,6 +68,7 @@ $(function(){
     	var height = $(document).height();
     	if( height>0 ) main.height(height);
     });
+
 });
 </script>
 <?php echo htmlspecialchars_decode($this->keys['tongji_code']);?>

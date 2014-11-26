@@ -44,7 +44,7 @@ else
 {
     $page = $_GET['page'];
     $page = $page?$page-1:0;
-    $perpage = 2;
+    $perpage = 8;
     
     $items = $db->select(DB_PREFIX.'items', array(
         'id',
@@ -68,7 +68,9 @@ else
     ));
     
     $pager = new Pager(array('total'=>$total,'perpage'=>$perpage));
-    $tpl->assign('pagebar', $pager->show(6));
+    if( $total > $perpage ) {
+        $tpl->assign('pagebar', $pager->show(6));
+    }
     $tpl->assign('items', $items);
     $tpl->assign('keys', $keys);
     $tpl->assign('form_token', form_get_token());

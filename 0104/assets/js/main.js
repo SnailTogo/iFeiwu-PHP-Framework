@@ -25,7 +25,7 @@ require(['swiper','response'], function() {
 		grabCursor : true,
 		onFirstInit : function(swiper){
 			
-			var $slide_a = $(swiper.slides[0]).find('a');console.log($slide_a);
+			var $slide_a = $(swiper.slides[0]).find('a');
 			$slide_a.css('background-image','url('+$slide_a.data('image')+'?imageView2/2/w/'+Response.deviceW()+')');
 			
 			$('.logo').hide();

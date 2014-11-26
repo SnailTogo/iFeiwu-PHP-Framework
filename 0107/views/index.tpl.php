@@ -24,15 +24,11 @@
         <li><a href="javascript:;" data-id="<?php echo $item['id'];?>"><img src="<?php echo $item['image_path'];?>/<?php echo $item['image'];?>" alt="<?php echo $item['title'];?>"></a></li>
         <?php endforeach;?>
     </ul>
+    <?php if( $this->pagebar ):?>
     <ul class="ul pages">
         <?php echo $this->pagebar;?>
     </ul>
-    <div class="overlay" id="show_item">
-        <div class="dialog">
-            <a href="#" class="close"></a>
-            <iframe width="100%" frameborder="0"></iframe>
-        </div>
-    </div>
+    <?php endif;?>
 	<div class="line">&nbsp;</div>
     <form class="message">
         <h2>Contact Us</h2>
@@ -52,7 +48,17 @@
         <input type="hidden" id="token" value="<?php echo $this->form_token;?>">
     </form>
 </div>
+
+<div class="fw_modal">
+    <div class="fw_modal-body">
+        <a href="javascript:;" class="fw_modal-close"></a>
+        <iframe id="ifr_item" width="100%" frameborder="0"></iframe>
+    </div>
+</div>
+
+<script>var is_mobile = '<?php echo $this->is_mobile;?>';</script>
 <script data-main="assets/js/main" src="assets/require.js"></script>
 <?php echo htmlspecialchars_decode($this->keys['tongji_code']);?>
+
 </body>
 </html>

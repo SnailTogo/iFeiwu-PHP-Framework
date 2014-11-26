@@ -1,103 +1,21 @@
-*,:before,:after {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-o-box-sizing: content-box;
-	-ms-box-sizing: content-box;
-	box-sizing: border-box;
+*,:before,:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;-o-box-sizing:content-box;-ms-box-sizing:content-box;box-sizing:border-box}
+html{font-size:100%}
+a{display:block;cursor:pointer;text-decoration:none;line-height:0;-webkit-tap-highlight-color:transparent}
+img{border:0;width:100%;height:auto}
+.ul{list-style:none;margin:0;padding:0;overflow:hidden}
+.wrap{max-width:828px;margin:0 auto}
+.arrow-down{display:none;position:absolute;bottom:4rem;left:50%;margin-left:-2rem;font-size:4rem}
+header{display:none;height:8rem;width:100%;background:#000;padding-top:1rem;position:fixed;top:0;left:0}
+header img{width:5rem;display:block;margin:0 auto}
+.items{display:none}
+.pagination{display:none;position:absolute;left:0;bottom:0;width:100%;background:#FFF;z-index:999}
+.switch{float:left;height:10px;cursor:pointer}
+.active{background:#352f2c}
+@media only screen and (max-width:828px){html{font-size:93.8%}
 }
-
-html {
-	font-size: 100%;
+@media only screen and (max-width:640px){html{font-size:87.5%}
 }
-
-a {
-	display:block;
-	cursor: pointer;
-	text-decoration: none;
-	line-height:0;
-	-webkit-tap-highlight-color: transparent;
+@media only screen and (max-width:480px){html{font-size:81.3%}
 }
-
-img {
-	border: 0;
-	width: 100%;
-	height: auto;
-}
-
-.ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-}
-
-.wrap {
-	max-width:828px;
-	margin:0 auto;
-}
-
-.arrow-down{
-	display:none;
-	position: absolute;
-	bottom: 4rem;
-	left: 50%;
-	margin-left: -2rem;
-	font-size: 4rem;
-}
-
-header{
-	display:none;
-	height:8rem;
-	width:100%;
-	background: #000;
-	padding-top:1rem;
-	position: fixed;
-	top:0;
-	left:0;
-}
-
-header img{
-	width: 5rem;
-	display: block;
-	margin: 0 auto;
-}
-
-.items{
-	display:none;
-}
-
-.pagination {
-	display:none;
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	background: #FFF;
-	z-index: 999;
-}
-
-.switch {
-	float: left;
-	height: 10px;
-	cursor: pointer;
-}
-
-.active {
-	background: #352F2C;
-}
-
-@media only screen and (max-width: 828px) {
-	html { font-size: 93.8%; }
-}
-
-@media only screen and (max-width: 640px) {
-	html { font-size: 87.5%; }
-}
-
-@media only screen and (max-width: 480px) {
-	html { font-size: 81.3%; }
-}
-
-@media only screen and (max-width: 320px) {
-	html { font-size: 75%; }
+@media only screen and (max-width:320px){html{font-size:75%}
 }

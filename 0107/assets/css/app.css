@@ -1,304 +1,52 @@
-@font-face { font-family: NotoSans; src: url("fonts/OpenSans-Light.ttf"); } 
-
-*,:before,:after {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-o-box-sizing: content-box;
-	-ms-box-sizing: content-box;
-	box-sizing: border-box;
+@font-face{font-family:NotoSans;src:url("fonts/OpenSans-Light.ttf");}
+*,:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-o-box-sizing:content-box;-ms-box-sizing:content-box;}
+html{font-size:100%;}
+html,body{height:100%;font-family:"Microsoft Yahei",Arial,Helvetica,sans-serif;}
+a{text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+img{height:auto;max-width:100%;border:0;}
+input,textarea{-webkit-appearance:none;}
+h1,h2,h3,h4,h5,h6{font-weight:normal;}
+.ul{overflow:hidden;margin:0;padding:0;list-style:none;}
+.wrap{min-width:768px;}
+.items li{position:relative;float:left;width:50%;line-height:0;}
+.items .mask{position:absolute;top:0;left:0;padding-top:26%;width:100%;height:100%;background:rgba(0,0,0,0.8);background:#000\9;color:#9c835b;text-align:center;font-size:1.6em;line-height:100%;filter:alpha(opacity=80);}
+.items li a{display:block;}
+.pages{overflow:visible;margin:0 auto;margin-top:100px;padding:0 20px 20px 0;width:80%;}
+.pages li{float:left;margin-left:25px;}
+.pages a{display:block;width:30px;height:30px;background-color:#fff;color:#fff;text-align:center;line-height:30px;}
+.pages .active a{margin-top:-10px;width:40px;height:40px;background-color:#846f50;color:#0c0a07;font-size:23px;line-height:40px;}
+.item{position:relative;padding:0 6em;}
+.item .arrow-left,.item .arrow-right{position:absolute;top:50%;z-index:2;display:none;margin-top:-35px;width:70px;height:70px;background:url(../img/arrows.png) rgba(0,0,0,0.3) no-repeat center;background-size:65%;}
+.item .arrow-left{left:0;background-position:15px 21px;}
+.item .arrow-right{right:0;background-position:15px -33px;}
+.item h2{margin:1em 0 1em 0;color:#af9363;text-align:center;font-size:3em;}
+.item .content{overflow:auto;padding:50px 20px;height:80%;color:#292929;font-size:1.8em;line-height:2em;}
+.item .inquiry{display:block;margin:0 0 100px 20px;width:8em;height:2.5em;border:1px solid #fff;background:#b09465;color:#fff;text-align:center;font-size:2em;line-height:2.5em;}
+.slider{position:relative;}
+.fw_modal{position:fixed;top:0;right:0;bottom:0;left:0;z-index:10000;display:none;overflow:auto;background:rgba(0,0,0,.9);background:#000\9;-webkit-overflow-scrolling:touch;-webkit-backface-visibility:hidden;}
+.fw_modal-body{position:relative;display:inline-block;visibility:hidden;padding:10em 10% 0;width:100%;height:100%;}
+.fw_modal-close{position:absolute;top:5em;right:10%;display:block;width:3em;height:3em;background:url("../img/close.png") no-repeat 55% 0;background-size:80%;}
+.line{margin:4em auto 0;width:100px;border-bottom:1px solid #fff;}
+.message{overflow:hidden;margin:5em 0 12em 0;padding:2em 10% 4em;width:100%;background-color:#2e2d2d;}
+.message h2{margin-top:0;color:#fff;text-align:center;font-size:4em;font-family:NotoSans;}
+.message label{display:block;margin-left:.5em;color:#acacac;font-size:1.3em;}
+.message input,.message textarea{margin:.5em 0 1em 0;padding:0 .8em;width:100%;height:4em;outline:0;border:0;background-color:#1f1f1f;color:#aaa;font-size:1.2em;}
+.message input{line-height:4em;}
+.message textarea{padding-top:.8em;height:11em;resize:none;}
+.message .btn{padding:0 8px 50px 0;text-align:right;}
+.message button{margin-top:1.96em;padding:0;width:100%;height:11em;outline:0;border:0;background:#846f50;color:#1d130f;font-size:1.2em;}
+.message .f1,.message .f2,.message .f3{float:left;}
+.message .f1{margin-right:4%;width:43%;}
+.message .f2{width:43%;}
+.message .f3{width:10%;}
+@media only screen and (max-width:960px){html{font-size:93.8%;}
+.message{padding:2em 5% 4em;}
+.message button{margin-top:1.98em;}
+.fw_modal-body{padding:10em 2% 0;}
+.fw_modal-close{right:2%;}
+.item{padding:0 2em;}
 }
-
-html {
-	font-size: 100%;
-}
-
-html,body {
-	height: 100%;
-	font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
-}
-
-a {
-	cursor: pointer;
-	text-decoration: none;
-	-webkit-tap-highlight-color: transparent;
-}
-
-img {
-	border: 0;
-	max-width: 100%;
-	height: auto;
-}
-
-input, textarea {
-	-webkit-appearance: none;
-}
-
-h1,h2,h3,h4,h5,h6{
-	font-weight:normal;
-}
-
-.ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-}
-
-.wrap{
-	min-width:768px;
-}
-
-.items li{
-	float: left;
-	line-height: 0;
-	width: 50%;
-	position: relative;
-}
-
-.items .mask{
-	position: absolute;
-width: 100%;
-height: 100%;
-background: rgba(0, 0, 0, 0.8);
-background: #000\9;
-filter:alpha(opacity=80);
-top: 0;
-left: 0;
-text-align: center;
-line-height: 100%;
-padding-top: 26%;
-font-size: 1.6em;
-color: #9C835B;
-}
-
-.items li a{
-	display: block;
-}
-
-.pages{
-	padding: 0 20px 20px 0;
-	overflow: visible;
-	margin: 0 auto;
-	width:80%;
-	margin-top:100px;
-}
-
-.pages li{
-	float: left;
-	margin-left: 25px;
-}
-
-.pages a{
-	display: block;
-	text-align: center;
-	width:30px;
-	height:30px;
-	line-height: 30px;
-	background-color:#fff;
-	color:#fff;
-}
-
-.pages .active a{
-	color:#0C0A07;
-	font-size:23px;
-	width:40px;
-	height:40px;
-	line-height: 40px;
-	background-color:#846F50;
-	margin-top: -10px;
-}
-
-.item{
-	position: relative;
-}
-
-.item .arrow-left,.item .arrow-right{
-	display:none;
-position: absolute;
-top: 50%;
-font-size: 30px;
-z-index: 2;
-background:url(../img/arrows.png) rgba(0, 0, 0, 0.3) no-repeat center;
-height: 70px;
-width: 80px;
-margin-top: -35px;
-}
-
-.item .arrow-left {
-	left: 0;
-	background-position: 15px 17px;
-}
-
-.item .arrow-right {
-	right: 0;
-	background-position: 15px -45px;
-}
-
-.item h2{
-color: #AF9363;
-text-align: center;
-font-size: 3em;
-margin: 1em 0 1em 0;
-}
-
-.item .content{
-line-height: 2em;
-color: #292929;
-height: 80%;
-font-size: 1.8em;
-padding: 50px 20px;
-overflow: auto;
-}
-
-.item .inquiry{
-display: block;
-background: #b09465;
-width: 8em;
-height: 2.5em;
-font-size: 2em;
-color: #fff;
-text-align: center;
-line-height: 2.5em;
-border: 1px solid #fff;
-margin-left: 20px;
-}
-
-.slider{
-	position: relative;
-}
-
-.overlay {
-    background: rgba(0, 0, 0, .9);
-    background: #000\9;
-    bottom: 0;
-    display: none;
-    height: 100%;
-    left: 0;
-    outline: none;
-    overflow: auto;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 1000;
-}
-
-.dialog { 
-	position:relative;
-    background: #EEEBEC;
-    color: #444;
-    margin: 100px auto;
-    padding: 50px 100px 200px;
-    position: relative;
-    width: 80%;
-}
-
-.dialog .close{
-	display:block;
-	position: absolute;
-	right: 0;
-	top: -100px;
-	height:100px;
-	width:100px;
-	background: url("../img/icon-close.png") no-repeat center right;
-}
-
-.line{
-	width:100px;
-	border-bottom: 1px solid #fff;
-	margin:4em auto 0;
-}
-
-.message{
-background-color: #2E2D2D;
-width: 100%;
-margin: 5em 0 12em 0;
-padding:2em 10% 4em;
-overflow: hidden;
-}
-
-.message h2{
-	color: #fff;
-text-align: center;
-font-size: 4em;
-font-family: NotoSans;
-margin-top: 0;
-}
-
-.message label{
-color: #ACACAC;
-font-size: 1.3em;
-margin-left: 0.5em;
-display: block;
-}
-
-.message input,.message textarea{
-border: none;
-height: 4em;
-width: 100%;
-margin: 0.5em 0 1em 0;
-padding: 0 0.8em;
-color: #aaa;
-font-size: 1.2em;
-background-color: #1F1F1F;
-outline: none;s
-}
-
-.message textarea{
-	height: 11em;
-	padding-top:0.8em;
-	resize:none;
-}
-
-.message .btn{
-	text-align: right;
-	padding: 0 8px 50px 0;
-}
-
-.message button{
-	border: none;
-	background: #846F50;
-	color: #1D130F;
-	height: 11em;
-	width: 100%;
-	font-size: 1.2em;
-	padding: 0;
-	margin-top: 1.96em;
-	outline: none;
-}
-
-.message .f1,.message .f2,.message .f3{
-	float: left;
-}
-
-.message .f1{
-	width:43%;
-	margin-right:4%;
-}
-
-.message .f2{
-	width:43%;
-}
-
-.message .f3{
-	width:10%;
-}
-
-@media only screen and (max-width: 960px) {
-	html { font-size: 93.8%; }
-	.message{padding:2em 5% 4em;}
-	.message button{margin-top: 1.98em;}
-}
-
-@media only screen and (max-width: 768px) {
-	html { font-size: 87.5%; }
-	.message{padding:2em 2% 4em;}
-	.message button{margin-top: 1.96em;}
-}
-
-@media only screen and (max-width: 540px) {
-	html { font-size: 81.3%; }
-}
-
-@media only screen and (max-width: 320px) {
-	html { font-size: 75%; }
+@media only screen and (max-width:768px){html{font-size:87.5%;}
+.message{padding:2em 2% 4em;}
+.message button{margin-top:1.96em;}
 }
