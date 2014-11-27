@@ -13,15 +13,15 @@ h1,h2,h3,h4,h5,h6{font-weight:normal;}
 .items li a{display:block;}
 #more{display:block;background:#171717;color:#af9364;text-align:center;font-size:3em;font-family:NotoSans;line-height:5em;}
 .item{position:relative;}
-.item .arrow-left,.item .arrow-right{position:absolute;top:50%;z-index:2;display:none;margin-top:-25px;width:50px;height:50px;background:url(../img/arrows.png) rgba(0,0,0,0.3) no-repeat center;background-size:60%;}
+.item .arrow-left,.item .arrow-right{position:absolute;top:50%;z-index:10;display:none;margin-top:-25px;width:50px;height:50px;background:url(../img/arrows.png) rgba(0,0,0,0.3) no-repeat center;background-size:60%;}
 .item .arrow-left{left:0;background-position:10px 15px;}
 .item .arrow-right{right:0;background-position:12px -22px;}
 .item h2{margin:0 0 1em 0;color:#282828;text-align:center;font-size:2.2em;font-family:NotoSans;}
 .item .content{overflow:auto;padding:30px 10px;height:80%;color:#292929;font-size:1.2em;line-height:2em;}
-.item .inquiry{display:block;margin:0 auto 3em;width:80%;height:2.5em;border:1px solid #fff;background:#b09465;color:#fff;text-align:center;font-size:2em;line-height:2.5em;}
+.item .mailto{display:block;margin:0 auto 3em;width:80%;height:2.5em;border:1px solid #fff;background:#b09465;color:#fff;text-align:center;font-size:2em;line-height:2.5em;}
 .slider{position:relative;}
 .fw_modal{position:fixed;top:0;right:0;bottom:0;left:0;z-index:10000;max-width:828px;margin:auto;display:none;overflow:auto;background:#eeebec;-webkit-overflow-scrolling:touch;-webkit-backface-visibility:hidden;}
-.fw_modal-body{position:relative;display:inline-block;visibility:hidden;padding:5em 1em 0;width:100%;height:100%;}
+.fw_modal-body{position:relative;display:inline-block;padding:5em 1em 0;width:100%;height:100%;}
 .fw_modal-close{position:absolute;top:1em;right:1em;display:block;width:3em;height:3em;background:url("../img/close.png") no-repeat 55% 115%;background-size:80%;}
 .message{overflow:hidden;padding:2em 5% 8em;width:100%;background-color:#2e2d2d;}
 .message h2{margin-top:0;height:3em;color:#fff;text-align:center;font-size:2em;font-family:NotoSans;line-height:3em;}

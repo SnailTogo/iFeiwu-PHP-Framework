@@ -17,7 +17,8 @@ $keys = db_get_keys(array(
     'AND' => array(
         'state' => 1,
         'key' => array(
-            'tongji_code'
+            'tongji_code',
+            'email_mailto'
         )
     )
 ));

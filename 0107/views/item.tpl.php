@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0;">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="renderer" content="webkit">
 <link rel="stylesheet" href="assets/css/reset.css">
@@ -19,13 +19,15 @@
         <div class="swiper-container">
         	<div class="swiper-wrapper">
         	<?php foreach($this->imgs as $img):?>
-        	   <div class="swiper-slide"><img src="<?php echo $img['image_path'].'/'.$img['image'];?>"></div>
+        	   <div class="swiper-slide" data-image="<?php echo $img['image_path'].'/'.$img['image'];?>"><img></div>
         	<?php endforeach;?>
         	</div>
         </div>
     </div>
     <div class="content"><?php echo $this->item['content'];?></div>
-    <a href="javascript:;" class="inquiry">询 价</a>
+    <?php if( $this->keys['email_mailto'] ):?>
+    <a href="mailto:<?php echo $this->keys['email_mailto'];?>?subject=<?php echo $this->item['title'];?>" class="mailto">给我发邮件</a>
+    <?php endif;?>
 </div>
 
 <script src="assets/js/jquery.js"></script>
@@ -36,14 +38,22 @@ $(function(){
 	
 	var slide_count = '<?php echo count($this->imgs);?>';
 	slider = $('.swiper-container').swiper({
-	   autoplay:3000,
+	   autoplay:500000,
 	   calculateHeight:true,
 	   onInit : function(swiper){
 	       if( slide_count-1>0 ) {
 	           $('.arrow-right').show();
 	       }
 	   },
+	   onFirstInit : function(swiper){
+			var $slide = $(swiper.slides[0]);
+			$slide.find('img').attr('src', $slide.data('image'));
+       },
 	   onSlideChangeStart: function(swiper){
+	   
+	        var $slide = $(swiper.slides[swiper.activeIndex]);
+	        $slide.find('img').attr('src', $slide.data('image'));
+	       
             $('.arrow-left').show();
             $('.arrow-right').show();
             if( swiper.activeIndex==slide_count-1 ) {
@@ -64,9 +74,12 @@ $(function(){
     });
     
     $(window.parent.document).find("#ifr_item").load(function(){
-    	var main = $(window.parent.document).find("#ifr_item");
+    setTimeout(function(){
+    var main = $(window.parent.document).find("#ifr_item");
     	var height = $(document).height();
     	if( height>0 ) main.height(height);
+    }, 1000);
+    	
     });
 
 });

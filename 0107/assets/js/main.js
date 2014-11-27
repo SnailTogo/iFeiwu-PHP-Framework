@@ -1,24 +1,74 @@
 require.config({
 	baseUrl: 'assets/js',
-	paths: {},
+	paths: {
+		'swiper': '../swiper/script'
+	},
 	shim: {
-		'fw.modal':['jquery']
+		'fw.modal':['jquery'],
+		'swiper':['jquery'],
+		'response':['jquery']
 	},
 	urlArgs: "v=20141013"
 });
-require(['fw.modal'], function() {
-	
+require(['fw.modal','swiper','response'], function() {
+
+	var slider = $('.swiper-container').swiper({
+	   autoplay:500000,
+	   calculateHeight:true,
+	   resizeReInit:true,
+	   updateOnImagesReady: true,
+	   onInit : function(swiper){
+
+	   },
+	   onFirstInit : function(swiper){
+alert('2');
+       },
+	   onSlideChangeStart: function(swiper){
+
+	   },
+	   onImagesReady: function(swiper) {
+
+	   },
+	   onSwiperCreated: function(swiper) {
+		   alert('4');
+	   },
+	});
+    $('.arrow-left').on('click', function(e) {
+    	e.preventDefault();
+    	slider.swipePrev();
+    });
+    $('.arrow-right').on('click', function(e) {
+    	e.preventDefault();
+    	slider.swipeNext();
+    });
+
 	var fwm = $(document.body).fw_modal('.items a', {
 		open: function ( e ){
-			var id = $(e.currentTarget).data('id');
-			var src = 'item.php?id='+id;
-			if( is_mobile ) {
-				src += '&d=m_'; 
-			}
-			$('#ifr_item').attr('src', src);
+			var item_id = $(e.currentTarget).data('id');
+			$.getJSON('forms/item.php',{'id':item_id},function(json){
+				if( json && json.item && json.imgs ) {
+					$('.item h2').text(json.item.title);
+					$('.item .content').html(json.item.content);
+					
+					var imgs_count = json.imgs.length;
+					for (var i = 0; i < imgs_count; i++) {
+						slider.appendSlide('<img src="'+json.imgs[i].image_path+'/'+json.imgs[i].image+'">');
+					}
+					if( imgs_count<=1 ) {
+						slider.stopAutoplay();
+						$('.arrow-left,.arrow-right').hide();
+					} else {
+						slider.startAutoplay();
+						$('.arrow-left,.arrow-right').show();
+					}
+					setTimeout(function(){
+						slider.reInit();
+					},300);
+				}
+			});
 		},
 		close: function ( e ) {
-			$('#ifr_item').css('height', 0);
+			slider.removeAllSlides();
 		}
 	});
 	
@@ -32,7 +82,9 @@ require(['fw.modal'], function() {
 	);
 	
 	window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function () {
-        document.getElementById('ifr_item').contentWindow.location.reload();
+		setTimeout(function(){
+			slider.resizeFix();
+		},300);
     }, false);
 
 	if( $('#more').length ) {

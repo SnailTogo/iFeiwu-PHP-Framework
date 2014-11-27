@@ -38,7 +38,7 @@ require(['browser'], function() {
 	if( $('.swiper-container').length ) {
 		var slider;
 		require(['swiper'], function() {
-			slider = $('.swiper-container').swiper({autoplay:3000,loop:true});
+			slider = $('.swiper-container').swiper({autoplay:5000,loop:true});
 			$('.arrow-left').on('click', function(e) {
 				e.preventDefault();
 				slider.swipePrev();

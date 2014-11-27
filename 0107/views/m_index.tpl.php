@@ -5,14 +5,20 @@
 <title><?php echo $this->keys['seo_title'];?></title>
 <meta name="keywords" content="<?php echo $this->keys['seo_keys'];?>" />
 <meta name="description" content="<?php echo $this->keys['seo_desc'];?>">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0;">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/114/h/114">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/120/h/120">
+<link rel="apple-touch-icon-precomposed" href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/57/h/57">
 <link rel="shortcut icon" href="<?php echo $this->keys['global_favicon_ico'];?>">
-<link href="<?php echo $this->keys['global_logo_app'];?>" rel="apple-touch-icon">
-<link href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/114/h/114" rel="apple-touch-icon" sizes="114x114">
-<link href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/120/h/120" rel="apple-touch-icon" sizes="120x120">
+<link rel="icon" sizes="192x192" href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/192/h/192">
+<link rel="icon" sizes="128x128" href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/128/h/128">
+<meta name="msapplication-TileImage" content="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/144/h/144">
+<meta name="msapplication-TileColor" content="#222222">
+<meta name="mobile-web-app-capable" content="yes">
+<script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+
 <link rel="stylesheet" href="assets/css/reset.css">
+<link rel="stylesheet" href="assets/swiper/style.css">
 <link rel="stylesheet" href="assets/css/m_app.css">
 </head>
 <body>
@@ -36,7 +42,18 @@
 <div class="fw_modal">
     <div class="fw_modal-body">
         <a href="javascript:;" class="fw_modal-close"></a>
-        <iframe id="ifr_item" width="100%" frameborder="0"></iframe>
+        <div class="item">
+            <h2></h2>
+            <div class="slider">
+            	<a class="arrow-left"></a>
+                <a class="arrow-right"></a>
+                <div class="swiper-container">
+                	<div class="swiper-wrapper"></div>
+                </div>
+            </div>
+            <div class="content"></div>
+            <a href="mailto:<?php echo $this->keys['email_mailto'];?>?subject=" class="mailto">给我发邮件</a>
+        </div>
     </div>
 </div>
 
