@@ -13,12 +13,11 @@
 <link href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/114/h/114" rel="apple-touch-icon" sizes="114x114">
 <link href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/120/h/120" rel="apple-touch-icon" sizes="120x120">
 <link rel="stylesheet" href="assets/css/reset.css">
-<link rel="stylesheet" href="assets/remodal/style.css">
 <link rel="stylesheet" href="assets/css/m_app.css">
 </head>
-<body style="background-color:<?php echo $this->keys['global_bg_color'];?>;overflow:hidden;">
+<body>
      
-<div class="wrap">
+<div class="wrap" style="background-color:<?php echo $this->keys['global_bg_color'];?>;">
     <img src="<?php echo $this->keys['header_image_m'];?>">
     <ul class="ul items">
         <?php include_once 'items_loading.tpl.php';?>
@@ -26,9 +25,9 @@
     <a id="more" href="javascript:;">More</a>
     <form class="message">
         <h2>Contact Us</h2>
-        <input type="text" id="title" value="冯思民" placeholder="姓名">
-        <input type="email" id="email" value="fengsimin@gmail.com" placeholder="邮箱">
-        <textarea id="content" placeholder="留言内容">好喜欢你的作品</textarea>
+        <input type="text" id="title" value="" placeholder="姓名">
+        <input type="email" id="email" value="" placeholder="邮箱">
+        <textarea id="content" placeholder="留言内容"></textarea>
         <button type="button" id="message_send">提 交</button>
         <input type="hidden" id="token" value="<?php echo $this->form_token;?>">
     </form>

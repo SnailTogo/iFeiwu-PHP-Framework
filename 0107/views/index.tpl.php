@@ -15,9 +15,9 @@
 <link rel="stylesheet" href="assets/css/reset.css">
 <link rel="stylesheet" href="assets/css/app.css">
 </head>
-<body style="background-color:<?php echo $this->keys['global_bg_color'];?>;">
+<body>
 
-<div class="wrap">
+<div class="wrap" style="background-color:<?php echo $this->keys['global_bg_color'];?>;">
     <img src="<?php echo $this->keys['header_image_pc'];?>">
     <ul class="ul items">
         <?php foreach($this->items as $item):?>
@@ -34,13 +34,13 @@
         <h2>Contact Us</h2>
         <div class="f1">
             <label>姓名</label>
-            <input type="text" id="title" value="冯思民">
+            <input type="text" id="title" value="">
             <label>邮箱</label>
-            <input type="email" id="email" value="fengsimin@gmail.com">
+            <input type="email" id="email" value="">
         </div>
         <div class="f2">
             <label>留言内容</label>
-            <textarea id="content">好喜欢你的作品</textarea>
+            <textarea id="content"></textarea>
         </div>
         <div class="f3">
             <button type="button" id="message_send">提 交</button>
