@@ -12,6 +12,7 @@ require.config({
 });
 require(['fw.modal','swiper','response'], function() {
 
+	var imgs_count = 0;
 	var slider = $('.swiper-container').swiper({
 	   autoplay:500000,
 	   calculateHeight:true,
@@ -24,7 +25,14 @@ require(['fw.modal','swiper','response'], function() {
 
        },
 	   onSlideChangeStart: function(swiper){
-
+			$('.arrow-left').show();
+            $('.arrow-right').show();
+            if( swiper.activeIndex==imgs_count-1 ) {
+                $('.arrow-right').hide();
+            }
+            if( swiper.activeIndex==0 ) {
+            	$('.arrow-left').hide();
+            }
 	   },
 	   onImagesReady: function(swiper) {
 
@@ -47,19 +55,21 @@ require(['fw.modal','swiper','response'], function() {
 			var item_id = $(e.currentTarget).data('id');
 			$.getJSON('forms/item.php',{'id':item_id},function(json){
 				if( json && json.item && json.imgs ) {
-					$('.item h2').text(json.item.title);
-					$('.item .content').html(json.item.content);
-					
-					var imgs_count = json.imgs.length;
+					$('.fw_modal h2').text(json.item.title);
+					$('.fw_modal .content').html(json.item.content);
+					if( json.keys ) {
+						$('.fw_modal .content').append('<a href="mailto:'+json.keys.email_mailto+'?subject='+json.item.title+'" class="mailto">给我发邮件</a>');
+					}
+					imgs_count = json.imgs.length;
 					for (var i = 0; i < imgs_count; i++) {
-						slider.appendSlide('<img src="'+json.imgs[i].image_path+'/'+json.imgs[i].image+'">');
+						slider.appendSlide(slider.createSlide('<img src="'+json.imgs[i].image_path+'/'+json.imgs[i].image+'">'));
 					}
 					if( imgs_count<=1 ) {
 						slider.stopAutoplay();
 						$('.arrow-left,.arrow-right').hide();
 					} else {
 						slider.startAutoplay();
-						$('.arrow-left,.arrow-right').show();
+						$('.arrow-right').show();
 					}
 					setTimeout(function(){
 						slider.reInit();
@@ -69,6 +79,8 @@ require(['fw.modal','swiper','response'], function() {
 		},
 		close: function ( e ) {
 			slider.removeAllSlides();
+			$('.swiper-wrapper').attr('style','');
+			$('.arrow-left,.arrow-right').hide();
 		}
 	});
 	

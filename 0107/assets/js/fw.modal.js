@@ -63,9 +63,9 @@
         };
         
         base.close = function () {
-        	$("html, body").animate({"scrollTop":base.scrollTop}, 300);
     		$(".fw_modal").fadeOut("fast", function () {
         		$("html, body").css("overflow", "");
+        		$("html, body").animate({"scrollTop":base.scrollTop},300);
         	});
         }
         

@@ -13,6 +13,7 @@
 <link href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/114/h/114" rel="apple-touch-icon" sizes="114x114">
 <link href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/120/h/120" rel="apple-touch-icon" sizes="120x120">
 <link rel="stylesheet" href="assets/css/reset.css">
+<link rel="stylesheet" href="assets/swiper/style.css">
 <link rel="stylesheet" href="assets/css/app.css">
 </head>
 <body>
@@ -52,7 +53,15 @@
 <div class="fw_modal">
     <div class="fw_modal-body">
         <a href="javascript:;" class="fw_modal-close"></a>
-        <iframe id="ifr_item" width="100%" frameborder="0"></iframe>
+        <h2></h2>
+        <div class="slider">
+        	<a class="arrow-left"></a>
+            <a class="arrow-right"></a>
+            <div class="swiper-container">
+            	<div class="swiper-wrapper"></div>
+            </div>
+        </div>
+        <div class="content"></div>
     </div>
 </div>
 
