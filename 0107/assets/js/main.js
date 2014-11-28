@@ -21,7 +21,7 @@ require(['fw.modal','swiper','response'], function() {
 
 	   },
 	   onFirstInit : function(swiper){
-alert('2');
+
        },
 	   onSlideChangeStart: function(swiper){
 
@@ -30,7 +30,7 @@ alert('2');
 
 	   },
 	   onSwiperCreated: function(swiper) {
-		   alert('4');
+
 	   },
 	});
     $('.arrow-left').on('click', function(e) {

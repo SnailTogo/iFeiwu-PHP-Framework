@@ -5,7 +5,7 @@
 <title><?php echo $this->keys['seo_title'];?></title>
 <meta name="keywords" content="<?php echo $this->keys['seo_keys'];?>" />
 <meta name="description" content="<?php echo $this->keys['seo_desc'];?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link rel="apple-touch-icon-precomposed" sizes="120x120" href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/114/h/114">
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/120/h/120">
 <link rel="apple-touch-icon-precomposed" href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/57/h/57">

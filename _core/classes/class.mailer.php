@@ -6,7 +6,7 @@
  * @copyright 2014 飞屋工作室
  * @link http://www.ifeiwu.com
  */
-require_once CORE_PATH . '/Libs/Mailer/class.phpmailer.php';
+require_once CORE_PATH . '/libs/Mailer/class.phpmailer.php';
 
 class Mailer
 {
