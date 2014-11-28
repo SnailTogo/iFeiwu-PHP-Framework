@@ -32,22 +32,22 @@ background: rgba(0, 0, 0, 0.8);
 -webkit-backface-visibility: hidden;}
 .fw_modal-body{position: relative;
 display: block;
-visibility:hidden;
-padding: 5em 5em 0;
+visibility: hidden;
+padding: 1em 5em 0;
 width: 100%;
-min-height:100%;
+min-height: 100%;
 max-width: 1000px;
-margin: 0 auto;
+margin: 100px auto 0;
 background: #eeebec;}
 .fw_modal-close{position: absolute;
-top: 1em;
-right: 1em;
+top: -65px;
+right: 10px;
 display: block;
-width: 3em;
-height: 3em;
-background: url("../img/close.png") no-repeat 55% 170%;
-background-size: 60%;}
-.fw_modal h2{margin:1em 0 1em 0;color:#af9363;text-align:center;font-size:3em;}
+width: 40px;
+height: 40px;
+background: url("../img/close.png") no-repeat 55% -15%;
+background-size: 80%;}
+.fw_modal h2{margin:1em 0 1em 0;color:#af9363;text-align:center;font-size:3em;font-family:NotoSans;}
 .fw_modal .content{padding:50px 20px;color:#292929;font-size:1.2em;line-height:2em;}
 .fw_modal .mailto{display: block;
 text-align:center;

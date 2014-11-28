@@ -8,7 +8,7 @@ require.config({
 		'swiper':['jquery'],
 		'response':['jquery']
 	},
-	urlArgs: "v=20141013"
+	urlArgs: "v=20141128"
 });
 require(['fw.modal','swiper','response'], function() {
 
@@ -17,13 +17,6 @@ require(['fw.modal','swiper','response'], function() {
 	   autoplay:500000,
 	   calculateHeight:true,
 	   resizeReInit:true,
-	   updateOnImagesReady: true,
-	   onInit : function(swiper){
-
-	   },
-	   onFirstInit : function(swiper){
-
-       },
 	   onSlideChangeStart: function(swiper){
 			$('.arrow-left').show();
             $('.arrow-right').show();
@@ -33,13 +26,7 @@ require(['fw.modal','swiper','response'], function() {
             if( swiper.activeIndex==0 ) {
             	$('.arrow-left').hide();
             }
-	   },
-	   onImagesReady: function(swiper) {
-
-	   },
-	   onSwiperCreated: function(swiper) {
-
-	   },
+	   }
 	});
     $('.arrow-left').on('click', function(e) {
     	e.preventDefault();
