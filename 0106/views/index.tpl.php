@@ -8,10 +8,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0;">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="renderer" content="webkit">
+<!--[if lt IE 9]><script>window.location.href='http://www.ifeiwu.com/ie-browser-upgrade.html';</script><![endif]-->
+<link rel="apple-touch-icon-precomposed" href="<?php echo $this->keys['global_logo_app'];?>">
 <link rel="shortcut icon" href="<?php echo $this->keys['global_favicon_ico'];?>">
-<link href="<?php echo $this->keys['global_logo_app'];?>" rel="apple-touch-icon">
-<link href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/114/h/114" rel="apple-touch-icon" sizes="114x114">
-<link href="<?php echo $this->keys['global_logo_app'];?>?imageView2/2/w/120/h/120" rel="apple-touch-icon" sizes="120x120">
 <link rel="stylesheet" href="assets/css/reset.css">
 <link rel="stylesheet" href="assets/swiper/style.css">
 <link rel="stylesheet" href="assets/css/app.css">
