@@ -11,11 +11,17 @@
 <link rel="stylesheet" href="assets/css/reset.css">
 <link rel="stylesheet" href="assets/swiper/style.css">
 <link rel="stylesheet" href="assets/css/m_app.css">
+<?php $fontcolor = $this->keys['global_font_color'];?>
+<style>
+.items .mask{color:<?php echo $fontcolor;?>;}
+.fw_modal h2{color:<?php echo $fontcolor;?>;}
+.fw_modal .mailto{background:<?php echo $fontcolor;?>;}
+</style>
 </head>
 <body>
      
 <div class="wrap" style="background-color:<?php echo $this->keys['global_bg_color'];?>;">
-    <img src="<?php echo $this->keys['header_image_m'];?>">
+    <header><img src="<?php echo $this->keys['header_image_m'];?>"></header>
     <ul class="ul items">
         <?php include_once 'items_loading.tpl.php';?>
     </ul>
@@ -25,7 +31,7 @@
         <input type="text" id="title" value="" placeholder="姓名">
         <input type="email" id="email" value="" placeholder="邮箱">
         <textarea id="content" placeholder="留言内容"></textarea>
-        <button type="button" id="message_send">提 交</button>
+        <button type="button" id="message_send" style="background:<?php echo $fontcolor;?>;">提 交</button>
         <input type="hidden" id="token" value="<?php echo $this->form_token;?>">
     </form>
 </div>

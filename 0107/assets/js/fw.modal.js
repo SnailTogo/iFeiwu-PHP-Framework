@@ -56,14 +56,14 @@
 
         base.open = function () {
         	base.scrollTop = $(window).scrollTop();
-        	$(".fw_modal").fadeIn("fast", function () {
+        	$(".fw_modal").fadeIn(300,"linear", function () {
         		$("html, body").css("overflow", "hidden");
         		$('.fw_modal-body').css('visibility', 'visible');
         	});
         };
         
         base.close = function () {
-    		$(".fw_modal").fadeOut("fast", function () {
+    		$(".fw_modal").fadeOut(300,"linear", function () {
         		$("html, body").css("overflow", "");
         		$("html, body").animate({"scrollTop":base.scrollTop},300);
         	});

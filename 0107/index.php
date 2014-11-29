@@ -14,7 +14,8 @@ $keys = db_get_keys(array(
             'global_favicon_ico',
             'weibo_sina_code',
             'tongji_code',
-            'global_bg_color'
+            'global_bg_color',
+            'global_font_color'
         )
     )
 ));

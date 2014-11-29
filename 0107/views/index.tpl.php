@@ -8,16 +8,23 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0;">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="renderer" content="webkit">
+<!--[if lt IE 9]><script>window.location.href='http://www.ifeiwu.com/ie-browser-upgrade.html';</script><![endif]-->
 <link rel="apple-touch-icon-precomposed" href="<?php echo $this->keys['global_logo_app'];?>">
 <link rel="shortcut icon" href="<?php echo $this->keys['global_favicon_ico'];?>">
 <link rel="stylesheet" href="assets/css/reset.css">
 <link rel="stylesheet" href="assets/swiper/style.css">
 <link rel="stylesheet" href="assets/css/app.css">
+<?php $fontcolor = $this->keys['global_font_color'];?>
+<style>
+.items .mask{color:<?php echo $fontcolor;?>;}
+.fw_modal h2{color:<?php echo $fontcolor;?>;}
+.fw_modal .mailto{background:<?php echo $fontcolor;?>;}
+</style>
 </head>
 <body>
 
 <div class="wrap" style="background-color:<?php echo $this->keys['global_bg_color'];?>;">
-    <img src="<?php echo $this->keys['header_image_pc'];?>">
+    <header><img src="<?php echo $this->keys['header_image_pc'];?>" alt="<?php echo $this->keys['seo_title'];?>"></header>
     <ul class="ul items">
         <?php foreach($this->items as $item):?>
         <li><a href="javascript:;" data-id="<?php echo $item['id'];?>"><img src="<?php echo $item['image_path'];?>/<?php echo $item['image'];?>" alt="<?php echo $item['title'];?>"></a></li>
@@ -42,7 +49,7 @@
             <textarea id="content"></textarea>
         </div>
         <div class="f3">
-            <button type="button" id="message_send">提 交</button>
+            <button type="button" id="message_send" style="background:<?php echo $fontcolor;?>;">提 交</button>
         </div>
         <input type="hidden" id="token" value="<?php echo $this->form_token;?>">
     </form>
